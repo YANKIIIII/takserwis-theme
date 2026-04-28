@@ -1,0 +1,40 @@
+/* MOBILE */
+@media (max-width: 939px) {
+
+  .first_center,
+  .second_center,
+  .third_center,
+  .third_center,
+  .fourth_center {
+    display: none !important;
+  }
+
+  .first_center.show_center,
+  .second_center.show_center,
+  .third_center.show_center,
+  .fourth_center.show_center {
+    display: flex !important;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 940px) {
+
+  .first_center,
+  .second_center,
+  .third_center,
+  .fourth_center {
+    display: none !important;
+  }
+
+  .first_center.show_center,
+  .second_center.show_center,
+  .third_center.show_center,
+  .fourth_center.show_center {
+    display: block !important;
+  }
+}
+
+#about_us_team_section .grid-bonus__image {
+  max-width: 100%;
+}

@@ -1,0 +1,44 @@
+/*
+Theme Name: Takservice Landing≈
+Author: Tsydik Alina
+Author URI: <Theme_Author_URI>
+Description: <Theme_Description>
+Version: 1.0.0
+License:
+License URI:
+Tags:
+Text Domain: <Theme_Text_Domain>
+*/
+
+.hide {
+	display:none !important;
+}
+
+.call-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    animation: wiggle 5s infinite ease-in-out;
+}
+
+/* Анимация раз в 5 сек */
+@keyframes wiggle {
+  0% { transform: scale(1) rotate(0deg); }
+
+  2% { transform: scale(1.15) rotate(10deg); }
+  4% { transform: scale(1.1) rotate(-8deg); }
+  6% { transform: scale(1.15) rotate(12deg); }
+  8% { transform: scale(1.1) rotate(-10deg); }
+  10% { transform: scale(1) rotate(0deg); }
+  /* пауза 90% времени */
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* показать только на мобильных */
+@media (min-width: 992px) {
+    .call-btn {
+        display: none;
+    }
+}

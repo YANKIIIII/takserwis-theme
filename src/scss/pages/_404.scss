@@ -1,0 +1,67 @@
+.error_block {
+    width:100%;
+    margin-top:50px;
+    height:calc(100vh - 100px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:inherit;
+    }
+    @include mq(tablet) {
+        margin-top:0px;
+    }
+
+}
+
+.error_info{
+    width:100%;
+    max-width:610px;
+    color:#fff;
+    text-align: center;
+    padding:0 20px;
+
+    ._suptitle {
+        font-size:14px;
+    }
+
+    .error_code {
+        font-size:200px;
+        margin-top:5px;
+        font-weight:800;
+        line-height: 100%;
+    }
+
+    ._message {
+        font-size:16px;
+        color: var(--White-72, rgba(255, 255, 255, 0.72));
+        margin-top:10px;
+        line-height:1.5;
+    }
+
+    ._button {
+        margin:30px auto 0 auto;
+    }
+
+    @include mq(tablet) {
+        .error_code {
+            font-size:160px;
+        }
+    }
+
+    @include mq(phone) {
+        .error_code {
+            font-size:100px;
+        }
+        ._button {
+            padding:0 40px;
+        }
+    
+    }
+
+  
+}

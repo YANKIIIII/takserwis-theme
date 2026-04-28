@@ -1,0 +1,39 @@
+.__first__breadcrumbs {
+	text-align: center;
+	margin-bottom: 15px;
+
+	@include mq(tablet) {
+		margin-bottom: 12px;
+
+	}
+
+	@include mq(phone) {
+		margin-bottom: 10px;
+
+	}
+}
+
+.__first__breadcrumbs a {
+	position: relative;
+	@include font-source-sans('Arial', 16px, 700, 120%);
+	@include fluidFontSize(font-size, 14, 16, 320, 480);
+
+}
+
+.__first__breadcrumbs .breadcrumb_last {
+	color: $white;
+	position: relative;
+	@include font-source-sans('Arial', 16px, 700, 120%);
+	@include fluidFontSize(font-size, 14, 16, 320, 480);
+
+}
+
+.__first__breadcrumbs--black .breadcrumb_last {
+	color: black;
+}
+
+.breadcrumbs__plus {
+	@include font-source-sans('Arial', 16px, 700, 120%);
+	@include fluidFontSize(font-size, 14, 16, 320, 480);
+	margin: 0 10px;
+}

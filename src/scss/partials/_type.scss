@@ -1,0 +1,113 @@
+//Fonts
+// @font-face {
+//   font-family: "Inter";
+//   font-style: normal;
+//   font-weight: 400;
+//   src: local("Inter"), url("../fonts/inter-regular.woff2") format("woff2"),
+//     url("../fonts/inter-regular.woff") format("woff"),
+//     url("../fonts/inter-regular.ttf") format("truetype");
+// }
+
+// @font-face {
+//   font-family: "Inter";
+//   font-style: normal;
+//   font-weight: 500;
+//   src: local("Inter"), url("../fonts/inter-regular.woff2") format("woff2"),
+//     url("../fonts/inter-regular.woff") format("woff"),
+//     url("../fonts/inter-regular.ttf") format("truetype");
+// }
+
+// @font-face {
+//   font-family: "Inter";
+//   font-style: normal;
+//   font-weight: 700;
+//   src: local("Inter"), url("../fonts/inter-900.woff2") format("woff2"),
+//     url("../fonts/inter-900.woff") format("woff"),
+//     url("../fonts/inter-900.ttf") format("truetype");
+// }
+
+// @font-face {
+//   font-family: "Inter";
+//   font-style: normal;
+//   font-weight: 600;
+//   src: local("Inter"), url("../fonts/inter-600.woff2") format("woff2"),
+//     url("../fonts/inter-600.woff") format("woff"),
+//     url("../fonts/inter-600.ttf") format("truetype");
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body {
+  color: $black;
+  @include font-source-sans('Inter', 14px, 400, 150%);
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+h1 {
+  @include font-source-sans(Inter, 42px, 800, 120%);
+  @include fluidFontSize(font-size, 36, 42, 768, 1920);
+  @include fluidFontSize(font-size, 24, 36, 320, 768);
+
+}
+
+h2 {
+  @include font-source-sans(Inter, 38px, 800, 120%);
+  @include fluidFontSize(font-size, 32, 38, 768, 1920);
+  @include fluidFontSize(font-size, 22, 32, 320, 768);
+
+}
+
+
+h3,
+h4 {
+  @include font-source-sans(Inter, 30px, 700, 150%);
+  @include fluidFontSize(font-size, 30, 30, 768, 1920);
+  @include fluidFontSize(font-size, 16, 30, 320, 768);
+
+}
+
+h5 {
+  @include font-source-sans('Inter', 20px, 700, 120%);
+  @include fluidFontSize(font-size, 16, 20, 768, 1920);
+  @include fluidFontSize(font-size, 16, 16, 320, 768);
+}
+
+p,
+li {
+  @include font-source-sans('Inter', 14px, 400, 150%);
+
+}
+
+h6 {
+  @include font-source-sans('Inter', 20px, 700, 120%);
+  @include fluidFontSize(font-size, 18, 20, 768, 1920);
+  @include fluidFontSize(font-size, 16, 18, 320, 768);
+}
+
+a {
+  color: $white;
+  transition: .2s;
+  text-decoration: none;
+
+  &:hover {
+    color: $contrast;
+  }
+}
+
+.number {
+  @include font-source-sans(Inter, 34px, 700, 120%);
+  @include fluidFontSize(font-size, 34, 34, 768, 1920);
+  @include fluidFontSize(font-size, 27, 34, 320, 768);
+}

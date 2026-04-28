@@ -1,0 +1,53 @@
+// --------------------------------------------------
+// vars
+
+@import 'partials/variables';
+
+// --------------------------------------------------
+// bootstrap
+
+// @import '../node_modules/bootstrap/scss/bootstrap-reboot';
+// @import '../node_modules/bootstrap/scss/bootstrap-grid';
+// @import '../node_modules/bootstrap/scss/bootstrap-utilities';
+
+// --------------------------------------------------
+// mixins
+
+@import 'mixins/helpers';
+
+// --------------------------------------------------
+// partials
+
+@import 'partials/base';
+@import 'partials/buttons';
+@import 'partials/common';
+@import 'partials/container';
+@import 'partials/normalize';
+@import 'partials/breadcrumbs';
+@import 'partials/type';
+@import 'partials/header-section';
+
+
+// --------------------------------------------------
+// layout
+
+@import 'layout/footer';
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/nav';
+
+// --------------------------------------------------
+// components
+
+// @import 'components/faq';
+
+// @import your components here
+
+// --------------------------------------------------
+// pages
+
+@import "pages/home";
+@import "pages/deal-single";
+@import "pages/404";
+@import "pages/page";
+
