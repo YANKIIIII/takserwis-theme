@@ -934,14 +934,7 @@ the_content();
         </div>
     </section>
 </main>
-<style>
-  .swiper, .swiper2 {
-  width: 100%;
-  /* height: 100%!important; */
-  min-height: 250px!important;
-}
 
-</style>
 
 <div class="becomedealer_wrapper">
 

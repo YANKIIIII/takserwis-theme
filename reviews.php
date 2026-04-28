@@ -6,43 +6,7 @@
 global $post;
 ?>
 <?php get_header(); ?>
-<style>
-    .lead {
-    text-align: center;
-}    
-main {
-    flex-grow: 1;
-    background-color: #ffffff;
-    transition: padding-top .6s;
-    top: 0;
-    position: relative;
-}
-.places_links {
-    display: flex;
-    justify-content: space-between;
-}
-.places_links .button.contrast{
-    width: 22%;
-}
-.reviews_heading{
-    margin-bottom: 40px;
-}
-.reviews_sub_heading{
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: 25px;
-}
-.chose_station{
-    margin-top: 25px;
-    margin-bottom: 30px;
-    font-weight: 700;
-    font-size: 16px;
-}
-.cookies_info{
-    margin-top: 40px;
-}
 
-</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
       crossorigin="anonymous" referrerpolicy="no-referrer" />
 <main class="main">
@@ -75,69 +39,7 @@ if ( function_exists('yoast_breadcrumb') ) {
             </p>
 
 
-<style>
-    .simple-rating{
-        position: relative;
-        font-size: 40px;
-        display: inline-block;
-        color: #DADCE0;
-    }
-    .simple-rating:before{
-        content: "★★★★★";
-        display: block;
-    }
-    .simple-rating__items{
-        position: absolute;
-        width: 100%;
-        height: 40px;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: row-reverse;
-        //overflow: hidden;
-    }
-    .simple-rating__item{
-        position: absolute;
-        width: 0;
-        height:0;
-        opacity: 0;
-        visibility: hidden;
-        top: 0;
-        left: 0;
-    }
-    .simple-rating__label{
-        flex:0 0 20%; 
-        height: 100%;
-        cursor: pointer;
-        color: #DADCE0;
-    }
-    .simple-rating__label::before{
-        content: "★";
-        display: block;
-        transition: color 0.3s ease 0s;
-    }
-    .simple-rating__item:checked,
-    .simple-rating__item:checked ~ .simple-rating__label{
-        color:#FBBC04;
-    }
-    .simple-rating__label:hover,
-    .simple-rating__label:hover ~ .simple-rating__label,
-    .simple-rating__label:checked ~ .simple-rating__label:hover{
-        color:#FBBC04;
-    }
-    .nolink{
-        pointer-events: none;
-    }
-    @media (min-width: 320px) and (max-width: 767px) {
-    .places_links {
-    flex-direction: column;
-}
-.places_links .button.contrast {
-    width: 100%;
-    margin-bottom: 20px;
-}
-        }
-</style>
+
 
             <div class="simple-rating">
 <div class="simple-rating__items">
@@ -175,30 +77,7 @@ if ( function_exists('yoast_breadcrumb') ) {
 
 
 
-            <!--<style>
-                .rateBox {
-                direction: rtl;
-                    text-align: center;
-                    margin-top: 20px;
-                }
-
-                .rateBox a {
-                    display: inline-block;
-                    margin: 0 5px;
-                    font-size: 1.5em;
-                    color: #dadce0;
-                    transition: all 0.5s;
-                }
-
-                .rateBox a:hover {
-                    color: #fbbc04;
-                    transform: scale(1.5);
-                }
-
-                .s1:hover ~ a, .s2:hover ~ a, .s3:hover ~ a, .s4:hover ~ a, .s5:hover ~ a {
-                    color: #fbbc04;
-                }
-            </style>
+            <!--
             <div class="rateBox">
                 <a class="s5" href="https://takserwis.pl/recenzje/dodaj-recenzje/"><span><i class="fas fa-star"></i></span></a>
                 <a class="s4" href="https://takserwis.pl/recenzje/dodaj-recenzje/"><span><i class="fas fa-star"></i></span></a>

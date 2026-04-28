@@ -487,15 +487,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </nav>
                     </div>
                     
-                    <!-- Контейнер для кнопки и баннера - уменьшен отступ справа -->
+                    <!-- Button and badge container (reduced right margin) -->
                     <div class="button-orly-wrapper" style="display: flex; align-items: center; gap: 8px; margin-right: 0;">
-                        <!-- Кнопка "Zarezerwuj wizytę" -->
+                        <!-- Online booking button -->
                         <a href="https://widget.zarezerwuj.pl/direct/ab7cf499-cd6c-46c4-9507-57cbf60ffd46" class="button contrast" target="_blank" onclick="gtag('event', 'zarezerwuj_wizyte', {
                             'event_category': 'Запись онлайн', 'event_label': 'https://widget.zarezerwuj.pl' });" >
                             <?php echo pll__('Забронировать','book-header');?>
                         </a>
                         
-                        <!-- Баннер Orły Motoryzacji рядом с кнопкой - уменьшен отступ -->
+                        <!-- Awards badge container -->
                         <?php if (function_exists('pll_current_language') && pll_current_language() == 'pl') : ?>
                         <div class="orly-banner-button" style="display: inline-block; vertical-align: middle; margin-left: 8px;">
                             <a href="https://www.orlymotoryzacji.pl/profile-1750865-tak-serwis-warsztat-samochodowy" target="_blank" rel="noopener nofollow" style="display: inline-block;">
@@ -512,111 +512,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         
         <!-- Адаптивные стили для баннера -->
-        <style>
-            /* Стили для баннера рядом с кнопкой */
-            .orly-banner-button {
-                display: inline-block;
-                vertical-align: middle;
-            }
-            
-            /* Скрываем баннер на мобильных устройствах */
-            @media (max-width: 768px) {
-                .orly-banner-button {
-                    display: none !important;
-                }
-                
-                /* FIX: Расположение контейнера в мобильном меню */
-                #wrapper-navbar .header.header2 .container .button-orly-wrapper {
-                    order: -1;
-                    width: 100%;
-                    justify-content: center;
-                    margin-top: 20px;
-                    margin-bottom: 20px;
-                }
-                
-                #wrapper-navbar .header.header2 .container .button-orly-wrapper .button {
-                    width: calc(100% - 40px);
-                    display: flex !important;
-                    justify-content: center;
-                    margin: 0;
-                }
-            }
-            
-            /* Для планшетов уменьшаем баннер и отступы */
-            @media (min-width: 769px) and (max-width: 992px) {
-                .header2 .container > div:last-child {
-                    gap: 5px !important;
-                }
-                .orly-banner-button {
-                    margin-left: 5px !important;
-                }
-                .orly-banner-button img {
-                    max-width: 130px !important;
-                }
-            }
-            
-            /* Для десктопов обычный размер */
-            @media (min-width: 993px) {
-                .header2 .container > div:last-child {
-                    gap: 8px !important;
-                }
-                .orly-banner-button img {
-                    max-width: 170px !important;
-                }
-            }
-            
-            /* Для больших экранов можно немного увеличить */
-            @media (min-width: 1200px) {
-                .orly-banner-button img {
-                    max-width: 180px !important;
-                }
-            }
-            
-            /* Для очень больших экранов */
-            @media (min-width: 1400px) {
-                .orly-banner-button img {
-                    max-width: 190px !important;
-                }
-            }
-            
-            /* Адаптивность контейнера с кнопкой и баннером */
-            @media (max-width: 992px) {
-                .header2 .container > div:last-child {
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    gap: 5px !important;
-                }
-                
-                .orly-banner-button {
-                    margin-top: 5px;
-                    margin-left: 5px !important;
-                }
-            }
-            
-            /* Убедимся, что кнопка и баннер выровнены по центру */
-            .header2 .container {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: space-between;
-            }
-            
-            .header2 .container > div:last-child {
-                display: flex;
-                align-items: center;
-                margin-right: 0;
-            }
-            
-            /* Уменьшаем общий отступ контейнера от правого края */
-            .header2 .container {
-                padding-right: 10px;
-            }
-            
-            /* Для кнопки уменьшаем правый padding если есть */
-            .button.contrast {
-                padding-right: 15px;
-                padding-left: 15px;
-            }
-        </style>
+        
 </body>
 </html>

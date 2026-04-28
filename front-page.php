@@ -84,42 +84,7 @@ global $post;
     <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.png" alt="" class="swiper-slide-second-img_mobile">
 </div>
 
-<style>
-    /* Стили для изменения цвета слова KLUBU */
-    .klub-text {
-        color: var(--klub-color, #FF9D42);
-        font-weight: bold;
-        transition: color 0.3s ease;
-    }
-    
-    /* Стили для изменения размера шрифта преимуществ */
-    .benefit-text {
-        font-size: var(--benefit-font-size, 16px);
-        transition: font-size 0.3s ease;
-        line-height: 1.4;
-    }
-    
-    /* Дополнительные стили для контроля отступов */
-    .slider_item_text {
-        margin-bottom: 1.5rem;
-    }
-    
-    .slider_item_text h2 {
-        margin-bottom: 0.75rem;
-        line-height: 1.3;
-    }
-    
-    .slider_item_text p {
-        margin-top: 0.5rem;
-        font-size: 1.1rem;
-    }
-    
-    .benefits .item {
-        display: flex;
-        align-items: center;
-        padding: 0.5rem 0;
-    }
-</style>
+
 
                     <!-- Слайд 3 -->
                     <div class="swiper-slide swiper-slide-third">
@@ -223,42 +188,7 @@ global $post;
     <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.png" alt="" class="swiper-slide-second-img_mobile">
 </div>
 
-<style>
-    /* Стили для изменения цвета слова KLUBU */
-    .klub-text {
-        color: var(--klub-color, #FF9D42);
-        font-weight: bold;
-        transition: color 0.3s ease;
-    }
-    
-    /* Стили для изменения размера шрифта преимуществ */
-    .benefit-text {
-        font-size: var(--benefit-font-size, 16px);
-        transition: font-size 0.3s ease;
-        line-height: 1.4;
-    }
-    
-    /* Дополнительные стили для контроля отступов */
-    .slider_item_text {
-        margin-bottom: 1.5rem;
-    }
-    
-    .slider_item_text h2 {
-        margin-bottom: 0.75rem;
-        line-height: 1.3;
-    }
-    
-    .slider_item_text p {
-        margin-top: 0.5rem;
-        font-size: 1.1rem;
-    }
-    
-    .benefits .item {
-        display: flex;
-        align-items: center;
-        padding: 0.5rem 0;
-    }
-</style>
+
 
                     <!-- Слайд 3 -->
                     <div class="swiper-slide swiper-slide-third">
@@ -652,33 +582,7 @@ global $post;
     </section>
 </main>
 
-<style>
-    .swiper, .swiper2 {
-        width: 100%;
-        min-height: 250px!important;
-    }
-    
-    /* Стили для слайдов можно вынести в отдельный CSS файл */
-    .swiper-slide-first-img,
-    .swiper-slide-second-img,
-    .swiper-slide-third-img,
-    .swiper-slide-first-img_mobile,
-    .swiper-slide-second-img_mobile,
-    .swiper-slide-third-img_mobile {
-        position: absolute;
-        z-index: -1;
-    }
-    
-    .hide_mobile {
-        display: block;
-    }
-    
-    @media (max-width: 768px) {
-        .hide_mobile {
-            display: none;
-        }
-    }
-</style>
+
 
 <div class="becomedealer_wrapper"></div>
 

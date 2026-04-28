@@ -9,7 +9,7 @@
     animation: wiggle 5s infinite ease-in-out;
 }
 
-/* Анимация раз в 5 сек */
+/* Wiggle animation every 5 seconds */
 @keyframes wiggle {
   0% { transform: scale(1) rotate(0deg); }
 
@@ -18,12 +18,12 @@
   6% { transform: scale(1.15) rotate(12deg); }
   8% { transform: scale(1.1) rotate(-10deg); }
   10% { transform: scale(1) rotate(0deg); }
-  /* пауза 90% времени */
+  /* pause for 90% of the duration */
   100% { transform: scale(1) rotate(0deg); }
 }
-/* Мобильные стили для кнопок и текста первого слайда */
+/* Mobile styles for the first slide's text and buttons */
 @media (max-width: 1200px) {
-    /* Кнопки */
+    /* Buttons */
     .swiper-slide-first .button.contrast {
         background-color: #FF9D42 !important;
         color: #fff !important;
@@ -35,17 +35,17 @@
         background-color: transparent !important;
     }
     
-    /* Заголовок первого слайда */
+    /* First slide title */
     .swiper-slide-first .slider_item_text h2 {
         color: #FFFFFF !important;
     }
     
-    /* Описание первого слайда (если нужно) */
+    /* First slide description */
     .swiper-slide-first .slider_item_text p {
         color: rgba(255, 255, 255, 0.8) !important;
     }
 }
-/* показать только на мобильных */
+/* Show only on mobile devices */
 @media (min-width: 940px) {
     .call-btn {
         display: none;
