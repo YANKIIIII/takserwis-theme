@@ -171,7 +171,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div class="site" id="page">
         <div id="wrapper-navbar">
-            <div class="header1 header 22222">
+            <div class="header1 header">
                 <div class="container">
                     <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                         <div style="display: flex; align-items: center;">
@@ -512,6 +512,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         
         <!-- Адаптивные стили для баннера -->
-        
-</body>
-</html>
+        
