@@ -1,0 +1,17 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Mac
+.DS_Store
+
+# OS generated files
+Thumbs.db
+
+# SASS
+.sass-cache/
+*.css.map
+
+# WP specific
+wp-config.php
