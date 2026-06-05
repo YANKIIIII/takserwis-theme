@@ -39,7 +39,7 @@
 
     &.contrast {
         background-color: $contrast;
-        color: $white;
+        color: $black;
         transition: background-color .6s, color .6s;
 
         &:hover {
@@ -57,7 +57,7 @@
 }
 
 .link {
-    color: $contrast;
+    color: $contrast_high;
     transition: color .6s;
 
     svg {

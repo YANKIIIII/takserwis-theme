@@ -5,6 +5,15 @@
 global $post;
 ?>
 <?php get_header(); ?>
+<?php
+// If language is German, load the German landing page template and stop
+if ( function_exists('pll_current_language') && pll_current_language() === 'de' ) {
+    $german_included_from_front_page = true;
+    include( get_template_directory() . '/page-german.php' );
+    get_footer();
+    return;
+}
+?>
 <main class="main">
     <?php
     $my_lang = pll_current_language();
@@ -31,9 +40,9 @@ global $post;
                                 </div>
                             </div>
                         </div>
-                        <img src="/wp-content/uploads/2026/01/untitled-design-14.png" alt="" class="swiper-slide-first-img hide_mobile">
-                        <img src="/wp-content/uploads/2025/12/vector-6.webp" alt="" class="swiper-slide-first-img2 hide_mobile"> 
-                        <img src="/wp-content/uploads/2026/01/vova-mob-ru.png" alt="" class="swiper-slide-first-img_mobile">
+                        <img data-no-lazy="1" fetchpriority="high" src="/wp-content/uploads/2026/05/baner-na-sajt-desktop-1.webp" alt="" class="swiper-slide-first-img hide_mobile">
+                        <img data-no-lazy="1" fetchpriority="high" src="/wp-content/uploads/2025/12/vector-6.webp" alt="" class="swiper-slide-first-img2 hide_mobile"> 
+                        <img data-no-lazy="1" fetchpriority="high" src="/wp-content/uploads/2026/05/baner-na-sajt-mobilnaya-versiya-1.webp" alt="" class="swiper-slide-first-img_mobile">
                     </div>
 
                     <!-- Слайд 2 -->
@@ -81,10 +90,45 @@ global $post;
         </div>
     </div>
     <img src="/wp-content/uploads/2026/01/karta-klubowicza2.png" alt="" class="swiper-slide-second-img hide_mobile">
-    <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.png" alt="" class="swiper-slide-second-img_mobile">
+    <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.webp" alt="" class="swiper-slide-second-img_mobile">
 </div>
 
-
+<style>
+    /* Стили для изменения цвета слова KLUBU */
+    .klub-text {
+        color: var(--klub-color, #FF9D42);
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    
+    /* Стили для изменения размера шрифта преимуществ */
+    .benefit-text {
+        font-size: var(--benefit-font-size, 16px);
+        transition: font-size 0.3s ease;
+        line-height: 1.4;
+    }
+    
+    /* Дополнительные стили для контроля отступов */
+    .slider_item_text {
+        margin-bottom: 1.5rem;
+    }
+    
+    .slider_item_text h2 {
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+    }
+    
+    .slider_item_text p {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .benefits .item {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+</style>
 
                     <!-- Слайд 3 -->
                     <div class="swiper-slide swiper-slide-third">
@@ -135,9 +179,9 @@ global $post;
                                 </div>
                             </div>
                         </div>
-                        <img src="/wp-content/uploads/2026/01/vova-utp.png" alt="" class="swiper-slide-first-img hide_mobile">
-                        <img src="/wp-content/uploads/2025/12/vector-6.webp" alt="" class="swiper-slide-first-img2 hide_mobile"> 
-                        <img src="/wp-content/uploads/2026/01/vova-mob.png" alt="" class="swiper-slide-first-img_mobile">
+                        <img data-no-lazy="1" fetchpriority="high" src="/wp-content/uploads/2026/05/baner-na-sajt-desktop.webp" alt="" class="swiper-slide-first-img hide_mobile">
+                        <img data-no-lazy="1" fetchpriority="high" src="/wp-content/uploads/2025/12/vector-6.webp" alt="" class="swiper-slide-first-img2 hide_mobile"> 
+                        <img data-no-lazy="1" fetchpriority="high" src="/wp-content/uploads/2026/05/baner-na-sajt-mobilnaya-versiya.webp" alt="" class="swiper-slide-first-img_mobile">
                     </div>
 
                     <!-- Слайд 2 -->
@@ -185,10 +229,45 @@ global $post;
         </div>
     </div>
     <img src="/wp-content/uploads/2026/01/karta-klubowicza2.png" alt="" class="swiper-slide-second-img hide_mobile">
-    <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.png" alt="" class="swiper-slide-second-img_mobile">
+    <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.webp" alt="" class="swiper-slide-second-img_mobile">
 </div>
 
-
+<style>
+    /* Стили для изменения цвета слова KLUBU */
+    .klub-text {
+        color: var(--klub-color, #FF9D42);
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    
+    /* Стили для изменения размера шрифта преимуществ */
+    .benefit-text {
+        font-size: var(--benefit-font-size, 16px);
+        transition: font-size 0.3s ease;
+        line-height: 1.4;
+    }
+    
+    /* Дополнительные стили для контроля отступов */
+    .slider_item_text {
+        margin-bottom: 1.5rem;
+    }
+    
+    .slider_item_text h2 {
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+    }
+    
+    .slider_item_text p {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .benefits .item {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+</style>
 
                     <!-- Слайд 3 -->
                     <div class="swiper-slide swiper-slide-third">
@@ -233,7 +312,7 @@ global $post;
                 <div class="item">
                     <div class="number_wrapper">
                         <?php if (!empty($item['icon'])) : ?>
-                        <img src="<?php echo esc_url($item['icon']); ?>" alt="">
+                        <img loading="lazy" src="<?php echo esc_url($item['icon']); ?>" alt="">
                         <?php endif; ?>
                         <div class="number"><?php echo esc_html($item['number'] ?? ''); ?></div>
                     </div>
@@ -263,7 +342,7 @@ global $post;
                         <?php if (!empty($about_us_second_img)) : ?>
                         <div class="about_us_section_second_images_first">
                             <img fetchpriority="high" class="grid-bonus__image" 
-                                 src="<?php echo esc_url($about_us_second_img['url']); ?>" 
+                                 src="<?php echo esc_url($about_us_second_img['sizes']['medium_large'] ?? $about_us_second_img['url']); ?>" 
                                  alt="<?php echo esc_attr($about_us_second_img['alt']); ?>">
                         </div>
                         <?php endif; ?>
@@ -271,16 +350,16 @@ global $post;
                         <div class="about_us_section_second_images_second">
                             <?php if (!empty($about_us_second_img_2)) : ?>
                             <div>
-                                <img fetchpriority="high" class="grid-bonus__image" 
-                                     src="<?php echo esc_url($about_us_second_img_2['url']); ?>" 
+                                <img loading="lazy" class="grid-bonus__image" 
+                                     src="<?php echo esc_url($about_us_second_img_2['sizes']['medium_large'] ?? $about_us_second_img_2['url']); ?>" 
                                      alt="<?php echo esc_attr($about_us_second_img_2['alt']); ?>">
                             </div>
                             <?php endif; ?>
                             
                             <?php if (!empty($about_us_second_img_3)) : ?>
                             <div>
-                                <img fetchpriority="high" class="grid-bonus__image" 
-                                     src="<?php echo esc_url($about_us_second_img_3['url']); ?>" 
+                                <img loading="lazy" class="grid-bonus__image" 
+                                     src="<?php echo esc_url($about_us_second_img_3['sizes']['medium_large'] ?? $about_us_second_img_3['url']); ?>" 
                                      alt="<?php echo esc_attr($about_us_second_img_3['alt']); ?>">
                             </div>
                             <?php endif; ?>
@@ -344,8 +423,8 @@ global $post;
                         <?php endif; ?>
                     </div>
                     <?php if (!empty($item['image'])) : ?>
-                    <img class="item-img" 
-                         src="<?php echo esc_url($item['image']['url']); ?>" 
+                    <img loading="lazy" class="item-img" 
+                         src="<?php echo esc_url($item['image']['sizes']['medium_large'] ?? $item['image']['url']); ?>" 
                          alt="<?php echo esc_attr($item['image']['alt']); ?>"
                          width="<?php echo esc_attr($item['image']['width']); ?>"
                          height="<?php echo esc_attr($item['image']['height']); ?>">
@@ -406,10 +485,10 @@ global $post;
                     ?>
                     <div class="swiper-slide">
                         <div class="item"> 
-                            <a class="about_us_team_link" href="<?php the_permalink(); ?>">
+                            <a class="about_us_team_link" href="<?php the_permalink(); ?>" aria-label="<?php echo pll_current_language() == 'ru' ? 'Подробнее о ' . esc_attr(get_the_title()) : 'Więcej o ' . esc_attr(get_the_title()); ?>">
                                 <?php if (!empty($employee_img)) : ?>
-                                <img fetchpriority="high" class="grid-bonus__image item_img"
-                                     src="<?php echo esc_url($employee_img['url']); ?>" 
+                                <img loading="lazy" class="grid-bonus__image item_img"
+                                     src="<?php echo esc_url($employee_img['sizes']['medium_large'] ?? $employee_img['url']); ?>" 
                                      alt="<?php echo esc_attr($employee_img['alt']); ?>"
                                      width="<?php echo esc_attr($employee_img['width']); ?>"
                                      height="<?php echo esc_attr($employee_img['height']); ?>">
@@ -470,8 +549,8 @@ global $post;
                     <?php foreach ($row as $brand) : ?>
                     <div class="item">
                         <?php if (!empty($brand['image'])) : ?>
-                        <img class="item_img" 
-                             src="<?php echo esc_url($brand['image']['url']); ?>" 
+                        <img loading="lazy" class="item_img" 
+                             src="<?php echo esc_url($brand['image']['sizes']['medium'] ?? $brand['image']['url']); ?>" 
                              alt="<?php echo esc_attr($brand['image']['alt']); ?>"
                              width="<?php echo esc_attr($brand['image']['width']); ?>"
                              height="<?php echo esc_attr($brand['image']['height']); ?>">
@@ -582,7 +661,33 @@ global $post;
     </section>
 </main>
 
-
+<style>
+    .swiper, .swiper2 {
+        width: 100%;
+        min-height: 250px!important;
+    }
+    
+    /* Стили для слайдов можно вынести в отдельный CSS файл */
+    .swiper-slide-first-img,
+    .swiper-slide-second-img,
+    .swiper-slide-third-img,
+    .swiper-slide-first-img_mobile,
+    .swiper-slide-second-img_mobile,
+    .swiper-slide-third-img_mobile {
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .hide_mobile {
+        display: block;
+    }
+    
+    @media (max-width: 768px) {
+        .hide_mobile {
+            display: none;
+        }
+    }
+</style>
 
 <div class="becomedealer_wrapper"></div>
 

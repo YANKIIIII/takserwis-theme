@@ -6,7 +6,177 @@
 global $post;
 ?>
 <?php get_header(); ?>
+<style>
+        #advantages_section {
+    background-color: #fff;
+    padding: 35px 0 0px 0;
+    padding-bottom: 30px;
+    margin-bottom: -30px;
+}
+#services_section {
+    background-color: #fff;
+    padding: 35px 0 0px 0;
+    padding-bottom: 30px;
+}
+#services_section.vacancies {
+    background-color: #f4f6f8;
+    padding: 70px 0 0px 0;
+    padding-bottom: 70px;
+}
 
+.vacancies_img_wrapper_1 {
+    bottom: -100px;
+    position: absolute;
+    right: 50px;
+    width: 525px;
+    height: 204px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 60px;
+}
+.vacancies_img_wrapper_1 span{
+    position: relative;
+    top: -20px;
+}
+.vacancies_img_wrapper {
+    position: relative;
+}
+.vacancies_img_wrapper_2 {
+    bottom: 76px;
+    position: absolute;
+    right: 128px;
+    z-index: 9;
+    width: 340px;
+    height: 68px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+font-size: 28px;
+}
+.card_item .vacancies_item_button {
+    color: #ff9d42;
+    position: relative;
+}
+.card_item .vacancies_item_button::before {
+    content: "";
+    position: absolute;
+    left: 55px;
+    /* bottom: 0; */
+    color: #FBFDFD;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    background-image: url(/wp-content/uploads/2024/10/frame-44.png);
+    top: 3px;
+    font-size: 36px;
+}
+html[lang=ru-RU] .card_item .vacancies_item_button::before {
+    content: "";
+    position: absolute;
+    left: 85px;
+    /* bottom: 0; */
+    color: #FBFDFD;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    background-image: url(/wp-content/uploads/2024/10/frame-44.png);
+    top: 3px;
+    font-size: 36px;
+}
+#main-section.grid_vacancies {
+    background-color: #ffffff;
+    margin-top: 30px;
+}
+#services_section.vacancies .services .item {
+    display: block;
+    background-color: #ffffff;
+    border-radius: 14px;
+    /* grid-template-columns: repeat(2, 1fr); */
+    padding: 20px 30px;
+    height: 160px;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    transition: color .3s;
+    color: #1a1924;
+}
+.vacancies_item_price_wrapper {
+    display: flex;
+    /* justify-content: unset; */
+    margin-left: auto;
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+}
+.vacancies_item_price {
+    margin-right: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    /* line-height: 150%; */
+    color: #ff9d42;
+}
+.header_section_vacancies {
+    text-align: left;
+}
+.vacancies_title_content {
+    margin-bottom: 30px;
+}
+#main-section.grid_vacancies .grid-bonus__content {
+    order: 0;
+    align-self: auto;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+.first_center.show_center, .second_center.show_center, .third_center.show_center {
+    width: 100%;
+}
+.first_center.show_center iframe, .second_center.show_center iframe, .third_center.show_center iframe{
+    width: 100%;
+}
+.vacancies_img_wrapper img{
+    width: 100%;
+}
+.vacancies_img_wrapper_2 {
+    bottom: 39px;
+    position: absolute;
+    right: 3px;
+    z-index: 9;
+    width: 347px;
+    height: 68px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 28px;
+    transform: scale(0.7);
+}
+.vacancies_img_wrapper_1 {
+    bottom: -100px;
+    position: absolute;
+    right: -88px;
+    width: 525px;
+    height: 204px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 60px;
+    transform: scale(0.7);
+}
+ }
+
+
+</style>
 <main class="main">
 
 <section id="title_section" class="title_section">
@@ -59,15 +229,22 @@ $footer_copyright_text = $footer_options['copyright_text'];
       <img src="https://takserwis.pl/wp-content/uploads/2023/06/fa6-solid_location-dot.svg" alt="">
       <?php echo $addresses_heading; ?>
    </div>
-   <div class="contact-section-item-text">
-      <ul>
-      <?php foreach ($addresses as $key => $item) { ?>
-
-      <li><?php echo $item['addresses_item']; ?></li>
-                
-                <?php } ?>
-      </ul>                               
-   </div>
+    <div class="contact-section-item-text">
+       <ul>
+       <?php 
+       $has_warszawska = false;
+       foreach ($addresses as $key => $item) { 
+           if (stripos($item['addresses_item'], 'Warszawska') !== false) {
+               $has_warszawska = true;
+           }
+       ?>
+       <li><?php echo $item['addresses_item']; ?></li>
+       <?php } ?>
+       <?php if (!$has_warszawska) { ?>
+       <li>Warszawska 39/41, 61-028 Poznań</li>
+       <?php } ?>
+       </ul>                               
+    </div>
 </div>
 <div class="contact-section-item">
    <div class="contact-section-item-heading">
@@ -102,7 +279,7 @@ $footer_copyright_text = $footer_options['copyright_text'];
                             <ul class="contact_iconLinks">
                 <?php foreach ($footer_icon_links as $link) { ?>
                 <li>
-                    <a rel=”nofollow” href="<?php echo $link['url']; ?>" target="_blank" class="footer_about_iconLink">
+                    <a rel="nofollow" href="<?php echo $link['url']; ?>" target="_blank" class="footer_about_iconLink" aria-label="<?php echo function_exists('get_social_label') ? esc_attr(get_social_label($link['url'])) : 'Social Media'; ?>">
                         <?php if ($link['icon']) { ?>
                         <img src="<?php echo $link['icon']['url']; ?>" alt="<?php echo $link['icon']['alt']; ?>"
                             width="<?php echo $link['icon']['width']; ?>"
@@ -139,6 +316,11 @@ $footer_copyright_text = $footer_options['copyright_text'];
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade" title="Strzeszyńska 61, 60-479 Poznań"></iframe>
 			</div>
+			<div class="wrapp_img fifth_center">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.8845459388657!2d16.9634938!3d52.406859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045b6dbaf275a5%3A0xb36a3f9e9cf2ef27!2sWarszawska%2039%2F41%2C%2061-028%20Pozna%C5%84%2C%20Poland!5e0!3m2!1sen!2spl!4v1765161166615!5m2!1sen!2spl" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" title="Warszawska 39/41, 61-028 Poznań"></iframe>
+			</div>
             
         </div>
 
@@ -173,6 +355,16 @@ $footer_copyright_text = $footer_options['copyright_text'];
             <div class="wrapp_img third_center">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.424511093465!2d16.934006577022632!3d52.36272214786157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045a8cbcfe2133%3A0x55aae88399434e16!2zxZt3acSZdGVnbyBBbnRvbmllZ28gNjhDLCA2MS0zNTkgUG96bmHFhCwg0J_QvtC70YzRiNCw!5e0!3m2!1sru!2sby!4v1722555205985!5m2!1sru!2sby" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+			<div class="wrapp_img fourth_center">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.701249411396!2d16.8947197!3d52.44832639999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47044368c7cb54a9%3A0xe74bc2c1ba387447!2zU3RyemVzennFhHNrYSA2MSwgNjAtNDc5IFBvem5hxYQsINCf0L7Qu9GM0YjQsA!5e0!3m2!1sru!2sby!4v1765161166614!5m2!1sru!2sbys" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" title="Strzeszyńska 61, 60-479 Poznań"></iframe>
+			</div>
+			<div class="wrapp_img fifth_center">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.8845459388657!2d16.9634938!3d52.406859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045b6dbaf275a5%3A0xb36a3f9e9cf2ef27!2sWarszawska%2039%2F41%2C%2061-028%20Pozna%C5%84%2C%20Poland!5e0!3m2!1sen!2spl!4v1765161166615!5m2!1sen!2spl" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" title="Warszawska 39/41, 61-028 Poznań"></iframe>
+			</div>
             <div class="wrapp">
                 <div class="content">
                     <h2><?php echo $title; ?></h2>

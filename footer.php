@@ -1,4 +1,17 @@
 <?php
+if (!function_exists('get_social_label')) {
+    function get_social_label($url) {
+        if (strpos($url, 'whatsapp.com') !== false || strpos($url, 'send?phone=') !== false) return 'WhatsApp';
+        if (strpos($url, 'm.me') !== false || strpos($url, 'messenger.com') !== false) return 'Messenger';
+        if (strpos($url, 'youtube.com') !== false) return 'YouTube';
+        if (strpos($url, 'tiktok.com') !== false) return 'TikTok';
+        if (strpos($url, 'linkedin.com') !== false) return 'LinkedIn';
+        if (strpos($url, 'facebook.com') !== false) return 'Facebook';
+        if (strpos($url, 'instagram.com') !== false) return 'Instagram';
+        return 'Social Media';
+    }
+}
+
 $footer_options = get_field('footer_options', 'option');
 $footer_about_title = $footer_options['about_block_title'];
 $footer_about_text = $footer_options['about_block_text'];
@@ -32,13 +45,19 @@ $footer_copyright_text = $footer_options['copyright_text'];
             </div>
             <!--<button class="open-popup-btn button">
                 <?php echo pll__('Перезвоните мне','call-me');?></button> -->
-                <a href="https://widget.zarezerwuj.pl/direct/ab7cf499-cd6c-46c4-9507-57cbf60ffd46" class="button contrast" target="_blank" onclick="gtag('event', 'zarezerwuj_wizyte', {
-       'event_category': 'Запись онлайн', 'event_label': 'https://widget.zarezerwuj.pl' });"><?php echo pll__('Записаться онлайн','book-banner');?></a>
+                 <a href="https://widget.zarezerwuj.pl/direct/ab7cf499-cd6c-46c4-9507-57cbf60ffd46" class="button contrast" target="_blank" onclick="gtag('event', 'zarezerwuj_wizyte', {
+        'event_category': 'Запись онлайн', 'event_label': 'https://widget.zarezerwuj.pl' });"><?php 
+        if (pll_current_language() == 'de') {
+            echo 'Online buchen';
+        } else {
+            echo pll__('Записаться онлайн','book-banner');
+        }
+        ?></a>
         </div>
         <div class="footer-row row2">
             <ul class="footer_about_address">
                 <li class="first_center show_center">
-                    <a rel=”nofollow” href="<?php if (!empty($address['link'])) : echo  $address['link'];
+                    <a rel="nofollow" href="<?php if (!empty($address['link'])) : echo  $address['link'];
                                 endif; ?>">
                         <?php if ($address_icon) { ?>
                         <img src="<?php echo $address_icon['url']; ?>" alt="<?php echo $address_icon['alt']; ?>"
@@ -51,7 +70,7 @@ $footer_copyright_text = $footer_options['copyright_text'];
                     </a>
                 </li>
                 <li class="second_center">
-                    <a rel=”nofollow” href="https://maps.app.goo.gl/AoaQFJrjEtUevTFDA">
+                    <a rel="nofollow" href="https://maps.app.goo.gl/AoaQFJrjEtUevTFDA">
                         <?php if ($address_icon) { ?>
                         <img src="<?php echo $address_icon['url']; ?>" alt="<?php echo $address_icon['alt']; ?>"
                             width="<?php echo $address_icon['width']; ?>"
@@ -63,7 +82,7 @@ $footer_copyright_text = $footer_options['copyright_text'];
                     </a>
                 </li>
                 <li class="third_center">
-                    <a rel=”nofollow” href="https://maps.app.goo.gl/LBDfDQWY9ZPLRUzo6">
+                    <a rel="nofollow" href="https://maps.app.goo.gl/LBDfDQWY9ZPLRUzo6">
                         <?php if ($address_icon) { ?>
                         <img src="<?php echo $address_icon['url']; ?>" alt="<?php echo $address_icon['alt']; ?>"
                             width="<?php echo $address_icon['width']; ?>"
@@ -75,7 +94,7 @@ $footer_copyright_text = $footer_options['copyright_text'];
                     </a>
                 </li>
 				<li class="fourth_center">
-                    <a rel=”nofollow” href="https://maps.app.goo.gl/X2f8gDdZywhsXxzL9">
+                    <a rel="nofollow" href="https://maps.app.goo.gl/X2f8gDdZywhsXxzL9">
                         <?php if ($address_icon) { ?>
                         <img src="<?php echo $address_icon['url']; ?>" alt="<?php echo $address_icon['alt']; ?>"
                             width="<?php echo $address_icon['width']; ?>"
@@ -83,6 +102,18 @@ $footer_copyright_text = $footer_options['copyright_text'];
                         <?php } ?>
                         <?php if ($address) { ?>
                         <?php echo 'Strzeszyńska 61, 60-479 Poznań'; ?>
+                        <?php } ?>
+                    </a>
+                </li>
+				<li class="fifth_center">
+                    <a rel="nofollow" href="https://maps.google.com/?q=Warszawska+39/41,+61-028+Poznań">
+                        <?php if ($address_icon) { ?>
+                        <img src="<?php echo $address_icon['url']; ?>" alt="<?php echo $address_icon['alt']; ?>"
+                            width="<?php echo $address_icon['width']; ?>"
+                            height="<?php echo $address_icon['height']; ?>">
+                        <?php } ?>
+                        <?php if ($address) { ?>
+                        <?php echo 'Warszawska 39/41, 61-028 Poznań'; ?>
                         <?php } ?>
                     </a>
                 </li>
@@ -132,7 +163,7 @@ $footer_copyright_text = $footer_options['copyright_text'];
     <ul class="footer_about_iconLinks">
                 <?php foreach ($footer_icon_links_new as $link) { ?>
                 <li>
-                    <a rel=”nofollow” href="<?php echo $link['url']; ?>" target="_blank" class="footer_about_iconLink">
+                    <a rel="nofollow" href="<?php echo $link['url']; ?>" target="_blank" class="footer_about_iconLink" aria-label="<?php echo esc_attr(get_social_label($link['url'])); ?>">
                         <?php if ($link['icon']) { ?>
                         <img src="<?php echo $link['icon']['url']; ?>" alt="<?php echo $link['icon']['alt']; ?>"
                             width="<?php echo $link['icon']['width']; ?>"
@@ -144,12 +175,12 @@ $footer_copyright_text = $footer_options['copyright_text'];
             </ul>
     <?php
   }
-  elseif ( $my_lang == 'pl' ) {
+  else {
     ?>
   <ul class="footer_about_iconLinks">
                 <?php foreach ($footer_icon_links as $link) { ?>
                 <li>
-                    <a rel=”nofollow” href="<?php echo $link['url']; ?>" target="_blank" class="footer_about_iconLink">
+                    <a rel="nofollow" href="<?php echo $link['url']; ?>" target="_blank" class="footer_about_iconLink" aria-label="<?php echo esc_attr(get_social_label($link['url'])); ?>">
                         <?php if ($link['icon']) { ?>
                         <img src="<?php echo $link['icon']['url']; ?>" alt="<?php echo $link['icon']['alt']; ?>"
                             width="<?php echo $link['icon']['width']; ?>"
@@ -171,7 +202,13 @@ $footer_copyright_text = $footer_options['copyright_text'];
                 &copy; <?php echo date('Y'); ?>. <?php echo $footer_copyright_text; ?>
             </span>
             <?php $url = get_privacy_policy_url(); ?>
-            <a href="<?= $url ?: '#'; ?>"> <?php echo pll__('Пользовательское соглашение','terms');?></a>
+            <a href="<?= $url ?: '#'; ?>"> <?php 
+             if (pll_current_language() == 'de') {
+                 echo 'Nutzungsbedingungen';
+             } else {
+                 echo pll__('Пользовательское соглашение','terms');
+             }
+             ?></a>
         </div>
     </div>
 </footer>
@@ -256,6 +293,24 @@ $footer_copyright_text = $footer_options['copyright_text'];
 <?php wp_footer(); ?>
 <script>
 jQuery(document).ready(function($){
+    function ensureFifthCenterMap() {
+        if ($(".wrapp_img.fifth_center").length === 0) {
+            var existingMap = $(".wrapp_img.fourth_center, .wrapp_img.third_center, .wrapp_img.second_center, .wrapp_img.first_center").first();
+            if (existingMap.length > 0) {
+                var clonedMap = existingMap.clone();
+                clonedMap.removeClass("first_center second_center third_center fourth_center show_center").addClass("fifth_center");
+                clonedMap.find("iframe").remove();
+                
+                var newIframe = $('<iframe style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>');
+                newIframe.attr("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.8845459388657!2d16.9634938!3d52.406859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045b6dbaf275a5%3A0xb36a3f9e9cf2ef27!2sWarszawska%2039%2F41%2C%2061-028%20Pozna%C5%84%2C%20Poland!5e0!3m2!1sen!2spl!4v1765161166615!5m2!1sen!2spl");
+                newIframe.attr("title", "Warszawska 39/41, 61-028 Poznań");
+                
+                clonedMap.append(newIframe);
+                existingMap.after(clonedMap);
+            }
+        }
+    }
+
     if (localStorage.getItem('city') == 'Świętego Antoniego 68C, 61-359 Poznań') {
   console.log('Address Świętego Antoniego 68C');
   $(".city-choose").html('Świętego Antoniego 68C, 61-359 Poznań');
@@ -264,6 +319,7 @@ jQuery(document).ready(function($){
   $(".second_center").removeClass('show_center');
   $(".third_center").addClass('show_center');
   $(".fourth_center").removeClass('show_center');
+  $(".fifth_center").removeClass('show_center');
 }
 else if (localStorage.getItem('city') == 'Węglowa 9/11, 61-001 Poznań') {
   console.log('Address Węglowa 9/11');
@@ -273,6 +329,7 @@ else if (localStorage.getItem('city') == 'Węglowa 9/11, 61-001 Poznań') {
   $(".second_center").addClass('show_center');
   $(".third_center").removeClass('show_center');
   $(".fourth_center").removeClass('show_center');
+  $(".fifth_center").removeClass('show_center');
 }
 else if (localStorage.getItem('city') == 'Składowa 33, Przezmierowo') {
   console.log('Address Składowa 33');
@@ -282,6 +339,7 @@ else if (localStorage.getItem('city') == 'Składowa 33, Przezmierowo') {
   $(".second_center").removeClass('show_center');
   $(".third_center").removeClass('show_center');
   $(".fourth_center").removeClass('show_center');
+  $(".fifth_center").removeClass('show_center');
 }
 else if (localStorage.getItem('city') == 'Strzeszyńska 61, 60-479 Poznań') {
   console.log('Address Strzeszyńska 61');
@@ -291,7 +349,20 @@ else if (localStorage.getItem('city') == 'Strzeszyńska 61, 60-479 Poznań') {
   $(".second_center").removeClass('show_center');
   $(".third_center").removeClass('show_center');
   $(".fourth_center").addClass('show_center');
+  $(".fifth_center").removeClass('show_center');
 }
+else if (localStorage.getItem('city') == 'Warszawska 39/41, 61-028 Poznań') {
+  console.log('Address Warszawska 39/41');
+  ensureFifthCenterMap();
+  $(".city-choose").html('Warszawska 39/41, 61-028 Poznań');
+  $(".mobile_city_select .language_btn").html('Warszawska 39/41, 61-028 Poznań');
+  $(".first_center").removeClass('show_center');
+  $(".second_center").removeClass('show_center');
+  $(".third_center").removeClass('show_center');
+  $(".fourth_center").removeClass('show_center');
+  $(".fifth_center").addClass('show_center');
+}
+
   $(".first_center_link").on( "click", function() {
         localStorage.setItem('city', 'Składowa 33, Przezmierowo');
   $(".city-choose").html('Składowa 33, Przezmierowo');
@@ -299,6 +370,7 @@ else if (localStorage.getItem('city') == 'Strzeszyńska 61, 60-479 Poznań') {
   $(".second_center").removeClass('show_center');
   $(".third_center").removeClass('show_center');
   $(".fourth_center").removeClass('show_center');
+  $(".fifth_center").removeClass('show_center');
 });
 
   $(".second_center_link").on( "click", function() {
@@ -308,6 +380,7 @@ else if (localStorage.getItem('city') == 'Strzeszyńska 61, 60-479 Poznań') {
   $(".second_center").addClass('show_center');
   $(".third_center").removeClass('show_center');
   $(".fourth_center").removeClass('show_center');
+  $(".fifth_center").removeClass('show_center');
 });
 
   $(".third_center_link").on( "click", function() {
@@ -317,6 +390,7 @@ else if (localStorage.getItem('city') == 'Strzeszyńska 61, 60-479 Poznań') {
   $(".second_center").removeClass('show_center');
   $(".third_center").addClass('show_center');
   $(".fourth_center").removeClass('show_center');
+  $(".fifth_center").removeClass('show_center');
 });
 	
   $(".fourth_center_link").on( "click", function() {
@@ -326,6 +400,19 @@ else if (localStorage.getItem('city') == 'Strzeszyńska 61, 60-479 Poznań') {
   $(".second_center").removeClass('show_center');
   $(".third_center").removeClass('show_center');
   $(".fourth_center").addClass('show_center');
+  $(".fifth_center").removeClass('show_center');
+});
+
+  $(".fifth_center_link").on( "click", function() {
+    ensureFifthCenterMap();
+    localStorage.setItem('city', 'Warszawska 39/41, 61-028 Poznań');
+  $(".city-choose").html('Warszawska 39/41, 61-028 Poznań');
+  $(".mobile_city_select .language_btn").html('Warszawska 39/41, 61-028 Poznań');
+  $(".first_center").removeClass('show_center');
+  $(".second_center").removeClass('show_center');
+  $(".third_center").removeClass('show_center');
+  $(".fourth_center").removeClass('show_center');
+  $(".fifth_center").addClass('show_center');
 });
 	
 
@@ -433,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
     </script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 
 
@@ -456,9 +543,9 @@ if ($template_name !== 'service_new.php') { // Замените 'template-servic
 
     
     const MOBILE_BREAKPOINT = 768; 
-    const FONT_AWESOME_CHECK_MARK_HTML = '<i class="fas fa-check"></i>'; 
-    const FONT_AWESOME_TOGGLE_DOWN_HTML = '<i class="fas fa-chevron-down"></i>'; 
-    const FONT_AWESOME_TOGGLE_UP_HTML = '<i class="fas fa-chevron-up"></i>'; 
+    const FONT_AWESOME_CHECK_MARK_HTML = '<svg class="check-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 5px; color: green; display: inline-block;"><polyline points="20 6 9 17 4 12"></polyline></svg>'; 
+    const FONT_AWESOME_TOGGLE_DOWN_HTML = '<svg class="chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 5px; display: inline-block;"><polyline points="6 9 12 15 18 9"></polyline></svg>'; 
+    const FONT_AWESOME_TOGGLE_UP_HTML = '<svg class="chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 5px; display: inline-block;"><polyline points="18 15 12 9 6 15"></polyline></svg>'; 
     
 
     let isMobile = window.matchMedia(`only screen and (max-width: ${MOBILE_BREAKPOINT}px)`).matches;
@@ -645,9 +732,9 @@ if ($template_name !== 'service_new.php') { // Замените 'template-servic
 
     
     const MOBILE_BREAKPOINT = 768; 
-    const FONT_AWESOME_CHECK_MARK_HTML = '<i class="fas fa-check"></i>'; 
-    const FONT_AWESOME_TOGGLE_DOWN_HTML = '<i class="fas fa-chevron-down"></i>'; 
-    const FONT_AWESOME_TOGGLE_UP_HTML = '<i class="fas fa-chevron-up"></i>'; 
+    const FONT_AWESOME_CHECK_MARK_HTML = '<svg class="check-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 5px; color: green; display: inline-block;"><polyline points="20 6 9 17 4 12"></polyline></svg>'; 
+    const FONT_AWESOME_TOGGLE_DOWN_HTML = '<svg class="chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 5px; display: inline-block;"><polyline points="6 9 12 15 18 9"></polyline></svg>'; 
+    const FONT_AWESOME_TOGGLE_UP_HTML = '<svg class="chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 5px; display: inline-block;"><polyline points="18 15 12 9 6 15"></polyline></svg>'; 
     
 
     let isMobile = window.matchMedia(`only screen and (max-width: ${MOBILE_BREAKPOINT}px)`).matches;
@@ -832,10 +919,7 @@ if ($template_name !== 'service_new.php') { // Замените 'template-servic
 }
 ?>
 
-
-
-<script src="//code.jivo.ru/widget/1RKXHiR6bZ" async></script>
-<a href="tel:+48880353599" class="call-btn">
+<a href="tel:+48880353599" class="call-btn" aria-label="<?php echo pll_current_language() == 'ru' ? 'Позвонить нам' : 'Zadzwoń do nas'; ?>">
 <svg width="64" height="64" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
   <!-- Увеличенный круг -->
   <circle cx="8" cy="8" r="2" stroke="#fcb900" stroke-width="11" fill="none"></circle>

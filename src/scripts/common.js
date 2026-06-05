@@ -342,17 +342,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function setPadding() {
-    const heightHeader = document.querySelector('#wrapper-navbar .header1').offsetHeight;
-    const heightHeaderWrapp = document.querySelector('#wrapper-navbar').offsetHeight;
-    const mainElement = document.querySelector('main');
-    if (window.innerWidth <= 939) {
-        mainElement.style.paddingTop = `${heightHeader}px`;
-    } else {
-        mainElement.style.paddingTop = `${heightHeaderWrapp}px`;
-    }
+    requestAnimationFrame(() => {
+        const header1 = document.querySelector('#wrapper-navbar .header1');
+        const headerWrapp = document.querySelector('#wrapper-navbar');
+        const mainElement = document.querySelector('main');
+        if (!header1 || !headerWrapp || !mainElement) return;
+
+        const heightHeader = header1.offsetHeight;
+        const heightHeaderWrapp = headerWrapp.offsetHeight;
+
+        if (window.innerWidth <= 939) {
+            mainElement.style.paddingTop = `${heightHeader}px`;
+        } else {
+            mainElement.style.paddingTop = `${heightHeaderWrapp}px`;
+        }
+    });
 }
 
-setPadding(); // Вызов функции для установки начального значения
+if (document.readyState === 'complete') {
+    setPadding();
+} else {
+    window.addEventListener('load', setPadding);
+}
 
 window.addEventListener('resize', setPadding); // Обновление значения при изменении размеров окна
 
@@ -403,3 +414,123 @@ document.querySelectorAll('.other_deals a:has(h3.black)').forEach(function (link
 //         });
 //     }
 // });
+
+// WCAG accessibility enhancements
+function fixFormLabels() {
+    const inputs = document.querySelectorAll('form input, form select, form textarea');
+    inputs.forEach((input, index) => {
+        // Проверяем, есть ли уже id. Если нет, создаем уникальный.
+        let id = input.getAttribute('id');
+        if (!id) {
+            const name = input.getAttribute('name') || 'field';
+            id = `wcag-input-${index}-${name.replace(/[^a-zA-Z0-9-]/g, '')}`;
+            input.setAttribute('id', id);
+        }
+
+        // 1. Проверяем, находится ли инпут внутри label
+        let label = input.closest('label');
+        
+        // 2. Если нет, попробуем найти label рядом (предыдущий сиблинг или внутри предыдущего сиблинга)
+        if (!label) {
+            // Ищем предыдущие элементы, которые могут быть label
+            let prev = input.previousElementSibling;
+            // CF7 оборачивает инпуты в span.wpcf7-form-control-wrap, поэтому проверим родителя
+            const wrapper = input.closest('.wpcf7-form-control-wrap');
+            if (wrapper) {
+                prev = wrapper.previousElementSibling;
+            }
+            
+            if (prev && prev.tagName === 'LABEL') {
+                label = prev;
+            } else {
+                // Попробуем найти любой label в этой же форме, у которого нет 'for' и который идет перед инпутом
+                const form = input.closest('form');
+                if (form) {
+                    const allLabels = Array.from(form.querySelectorAll('label'));
+                    // Находим последний label, расположенный перед нашим input по порядку в DOM
+                    const precedingLabels = allLabels.filter(l => {
+                        return (input.compareDocumentPosition(l) & Node.DOCUMENT_POSITION_PRECEDING) && !l.hasAttribute('for');
+                    });
+                    if (precedingLabels.length > 0) {
+                        // Используем последний предшествующий label без 'for'
+                        label = precedingLabels[precedingLabels.length - 1];
+                    }
+                }
+            }
+        }
+
+        // Если нашли label, связываем их
+        if (label) {
+            if (!label.getAttribute('for')) {
+                label.setAttribute('for', id);
+            }
+        }
+
+        // Дополнительный фоллбек: если label не найден или пустой, добавляем aria-label
+        const placeholder = input.getAttribute('placeholder');
+        const ariaLabel = input.getAttribute('aria-label');
+        if (!ariaLabel) {
+            if (placeholder) {
+                input.setAttribute('aria-label', placeholder);
+            } else if (label && label.textContent.trim()) {
+                input.setAttribute('aria-label', label.textContent.trim());
+            } else {
+                const name = input.getAttribute('name');
+                if (name) {
+                    // Преобразуем имя в читаемый вид
+                    let friendlyName = name;
+                    if (name.includes('menu-88')) friendlyName = 'Wybór usługi';
+                    else if (name.includes('menu-89')) friendlyName = 'Wybór konkretnej usługi';
+                    else if (name.includes('your-name')) friendlyName = 'Twoje imię i nazwisko';
+                    else if (name.includes('tel-351')) friendlyName = 'Numer telefonu';
+                    else if (name.includes('your-message')) friendlyName = 'Dodatkowe informacje';
+                    input.setAttribute('aria-label', friendlyName);
+                }
+            }
+        }
+    });
+}
+
+function observeDynamicReviews() {
+    const isRu = (document.documentElement.lang || '').toLowerCase().includes('ru');
+    const prevLabel = isRu ? 'Предыдущий отзыв' : 'Poprzednia recenzja';
+    const nextLabel = isRu ? 'Следующий отзыв' : 'Następna recenzja';
+
+    function addLabels() {
+        const prevBtns = document.querySelectorAll('button.rpi-ltgt.grw-prev, button.grw-prev');
+        const nextBtns = document.querySelectorAll('button.rpi-ltgt.grw-next, button.grw-next');
+        
+        prevBtns.forEach(btn => {
+            if (!btn.hasAttribute('aria-label')) {
+                btn.setAttribute('aria-label', prevLabel);
+            }
+        });
+        nextBtns.forEach(btn => {
+            if (!btn.hasAttribute('aria-label')) {
+                btn.setAttribute('aria-label', nextLabel);
+            }
+        });
+    }
+
+    addLabels();
+
+    const observer = new MutationObserver(function() {
+        addLabels();
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+}
+
+function initWcag() {
+    fixFormLabels();
+    observeDynamicReviews();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWcag);
+} else {
+    initWcag();
+}

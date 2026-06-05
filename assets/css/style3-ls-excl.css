@@ -4,15 +4,16 @@
   .first_center,
   .second_center,
   .third_center,
-  .third_center,
-  .fourth_center {
+  .fourth_center,
+  .fifth_center {
     display: none !important;
   }
 
   .first_center.show_center,
   .second_center.show_center,
   .third_center.show_center,
-  .fourth_center.show_center {
+  .fourth_center.show_center,
+  .fifth_center.show_center {
     display: flex !important;
   }
 }
@@ -23,14 +24,16 @@
   .first_center,
   .second_center,
   .third_center,
-  .fourth_center {
+  .fourth_center,
+  .fifth_center {
     display: none !important;
   }
 
   .first_center.show_center,
   .second_center.show_center,
   .third_center.show_center,
-  .fourth_center.show_center {
+  .fourth_center.show_center,
+  .fifth_center.show_center {
     display: block !important;
   }
 }

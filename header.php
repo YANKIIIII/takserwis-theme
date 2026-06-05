@@ -1,4 +1,17 @@
 <?php
+if (!function_exists('get_social_label')) {
+    function get_social_label($url) {
+        if (strpos($url, 'whatsapp.com') !== false || strpos($url, 'send?phone=') !== false) return 'WhatsApp';
+        if (strpos($url, 'm.me') !== false || strpos($url, 'messenger.com') !== false) return 'Messenger';
+        if (strpos($url, 'youtube.com') !== false) return 'YouTube';
+        if (strpos($url, 'tiktok.com') !== false) return 'TikTok';
+        if (strpos($url, 'linkedin.com') !== false) return 'LinkedIn';
+        if (strpos($url, 'facebook.com') !== false) return 'Facebook';
+        if (strpos($url, 'instagram.com') !== false) return 'Instagram';
+        return 'Social Media';
+    }
+}
+
 $header_options = get_field('header_options', 'option');
 $footer_options = get_field('footer_options', 'option');
 $footer_icon_links = $header_options['icon_links'];
@@ -17,52 +30,75 @@ defined('ABSPATH') || exit;
 <html <?php language_attributes(); ?>>
 
 <head>
+    <link rel="preconnect" href="https://www.orlymotoryzacji.pl">
+    <link rel="dns-prefetch" href="https://www.orlymotoryzacji.pl">
 <?php wp_head(); ?>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TPNGZR98');</script>
-<!-- End Google Tag Manager -->
-	<meta name="google-site-verification" content="uTaOSG0_LXLqnG8BUs0jl6HmLgVCsV15-KoJ6hHZlO4" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Delayed Analytics Scripts -->
     <script type="text/javascript">
-    (function(m, e, t, r, i, k, a) {
-        m[i] = m[i] || function() {
-            (m[i].a = m[i].a || []).push(arguments)
-        };
-        m[i].l = 1 * new Date();
-        for (var j = 0; j < document.scripts.length; j++) {
-            if (document.scripts[j].src === r) {
-                return;
-            }
-        }
-        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(
-            k, a)
-    })
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
 
-    ym(94225487, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true
+        // GTM
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TPNGZR98');
+
+        // Yandex Metrika
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(
+                k, a)
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(94225487, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+
+        // Google Analytics 4
+        var script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-TEWWY6BDW1';
+        script.async = true;
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag; // Make it global
+        gtag('js', new Date());
+        gtag('config', 'G-TEWWY6BDW1');
+        
+        // JivoChat
+        (function(w,d,s){
+            var f=d.getElementsByTagName(s)[0], j=d.createElement(s);
+            j.async=true; j.src='//code.jivo.ru/widget/1RKXHiR6bZ';
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script');
+    }
+
+    var interactionEvents = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
+    interactionEvents.forEach(function(event) {
+        window.addEventListener(event, function() {
+            loadAnalytics();
+        }, { once: true, passive: true });
     });
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEWWY6BDW1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-TEWWY6BDW1');
-    </script>
+    <!-- End Delayed Analytics Scripts -->
 
     
 <script type="application/ld+json">
@@ -122,7 +158,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@type": "PostalAddress",
       "streetAddress": "Warszawska 39/41",
       "addressLocality": "Poznań",
-      "postalCode": "61-082",
+      "postalCode": "61-028",
       "addressCountry": "PL"
     }
   ],
@@ -171,17 +207,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div class="site" id="page">
         <div id="wrapper-navbar">
-            <div class="header1 header">
+            <div class="header1 header 22222">
                 <div class="container">
                     <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                         <div style="display: flex; align-items: center;">
                             <a href="<?php echo pll_home_url(); ?>" class="logo logo_tablet" style="margin-right: 15px;">
-                                <img src="<?php echo $header_logo_tablet['url']; ?>" alt="logotype"
+                                <img src="<?php echo $header_logo_tablet['url']; ?>" alt="logotype" fetchpriority="high" data-no-lazy="1"
                                     width="<?php echo $header_logo_tablet['width']; ?>"
                                     height="<?php echo $header_logo_tablet['height']; ?>">
                             </a>
                             <a href="<?php echo pll_home_url(); ?>" class="logo logo_mobile" style="margin-right: 15px;">
-                                <img src="<?php echo $header_logo_mob['url']; ?>" alt="logotype"
+                                <img src="<?php echo $header_logo_mob['url']; ?>" alt="logotype" fetchpriority="high" data-no-lazy="1"
                                     width="<?php echo $header_logo_mob['width']; ?>"
                                     height="<?php echo $header_logo_mob['height']; ?>">
                             </a>
@@ -197,7 +233,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <?php foreach ($footer_icon_links_new as $link) { ?>
                                     <li>
                                         <a rel="nofollow" href="<?php echo $link['url']; ?>" target="_blank"
-                                            class="header_about_iconLink">
+                                            class="header_about_iconLink" aria-label="<?php echo esc_attr(get_social_label($link['url'])); ?>">
                                             <?php if ($link['icon']) { ?>
                                             <img src="<?php echo $link['icon']['url']; ?>"
                                                 alt="<?php echo $link['icon']['alt']; ?>"
@@ -209,13 +245,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <?php } ?>
                                 </ul>
                                 <?php
-                                } elseif ( $my_lang == 'pl' ) {
+                                } else {
                                 ?>
                                 <ul class="header_about_iconLinks">
                                     <?php foreach ($footer_icon_links as $link) { ?>
                                     <li>
                                         <a rel="nofollow" href="<?php echo $link['url']; ?>" target="_blank"
-                                            class="header_about_iconLink">
+                                            class="header_about_iconLink" aria-label="<?php echo esc_attr(get_social_label($link['url'])); ?>">
                                             <?php if ($link['icon']) { ?>
                                             <img src="<?php echo $link['icon']['url']; ?>"
                                                 alt="<?php echo $link['icon']['alt']; ?>"
@@ -228,7 +264,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </ul>
                                 <?php } ?>
                             </li>
-                            <li>
+                            <li class="header-address-item">
                                 <?php if ($address_icon) { ?>
                                 <img src="<?php echo $address_icon['url']; ?>" alt="<?php echo $address_icon['alt']; ?>"
                                     width="<?php echo $address_icon['width']; ?>"
@@ -236,8 +272,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <?php } ?>
 
                                 <div id="header-left-2" class="header-left infohide_grodno" style="color: #fff;">
-                                    <div><?php echo pll__('Выберите адрес станции СТО','choose');?>: <span class="city-choose popmake-1038">Składowa 33, Przezmierowo</span></div>
-                                    <div class="info-desc"><a href="tel:<?php the_field('phone_1',17078); ?>"><i class="fas fa-phone-alt1"></i><?php the_field('phone_1',17078); ?></a></div>						
+                                    <div><?php 
+                                     if (pll_current_language() == 'de') {
+                                         echo 'Werkstattstandort wählen';
+                                     } else {
+                                         echo pll__('Выберите адрес станции СТО','choose');
+                                     }
+                                     ?>: <span class="city-choose popmake-1038">Składowa 33, Przezmierowo</span></div>
                                     <div><?php the_field('grodno_address',17078); ?></div>
                                     <div id="header-left-working"><?php the_field('grodno_hours',17078); ?></div>
                                     <div class="cities">
@@ -245,14 +286,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="second_center_link">Węglowa 9/11, 61-001 Poznań</div>
                                         <div class="third_center_link">Świętego Antoniego 68C, 61-359 Poznań</div>
                                         <div class="fourth_center_link">Strzeszyńska 61, 60-479 Poznań</div>
-										<div class="fifth_center_link">Warszawska 39/41, 61-082 Poznań</div>
+										<div class="fifth_center_link">Warszawska 39/41, 61-028 Poznań</div>
                                     </div>
                                 </div>
                             </li>
                             <?php if ($contacts) { ?>
                             <?php foreach ($contacts as $contact) { ?>
                             <li class="<?php if (substr($contact['url'], 0, 4) === "tel:") { echo "phone";} ?>">
-                                <a class="<?php if (substr($contact['url'], 0, 4) === "tel:") { echo "zphone";} ?>" href="<?php echo $contact['url']; ?>">
+                                <a class="<?php if (substr($contact['url'], 0, 4) === "tel:") { echo "zphone";} ?>" href="<?php echo $contact['url']; ?>" aria-label="<?php echo esc_attr($contact['title'] ? $contact['title'] : str_replace('tel:', '', $contact['url'])); ?>">
                                     <?php if ($contact['icon']) { ?>
                                     <img src="<?php echo $contact['icon']['url']; ?>"
                                         alt="<?php echo $contact['icon']['alt']; ?>"
@@ -275,7 +316,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <?php }
                             } ?>
                             <li class="btn"><button class=" open-popup-btn button contrast">
-                                    <?php echo pll__('Перезвоните мне','call-me');?></button></li>
+                                    <?php 
+                                     if (pll_current_language() == 'de') {
+                                         echo 'Rückruf anfordern';
+                                     } else {
+                                         echo pll__('Перезвоните мне','call-me');
+                                     }
+                                     ?></button></li>
                             <li class="burger-btn">
                                 <div class="navbar-toggler burger-btn" data-toggle=" collapse"
                                     data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown">
@@ -297,7 +344,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <ul class="header_about_iconLinks">
                                 <?php foreach ($footer_icon_links_new  as $link) { ?>
                                 <li>
-                                    <a href="<?php echo $link['url']; ?>" target="_blank" class="header_about_iconLink">
+                                    <a href="<?php echo $link['url']; ?>" target="_blank" class="header_about_iconLink" aria-label="<?php echo esc_attr(get_social_label($link['url'])); ?>">
                                         <?php if ($link['icon']) { ?>
                                         <img src="<?php echo $link['icon']['url']; ?>"
                                             alt="<?php echo $link['icon']['alt']; ?>"
@@ -309,12 +356,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <?php } ?>
                             </ul>
                             <?php
-                            } elseif ( $my_lang == 'pl' ) {
+                            } else {
                             ?>
                             <ul class="header_about_iconLinks">
                                 <?php foreach ($footer_icon_links as $link) { ?>
                                 <li>
-                                    <a href="<?php echo $link['url']; ?>" target="_blank" class="header_about_iconLink">
+                                    <a href="<?php echo $link['url']; ?>" target="_blank" class="header_about_iconLink" aria-label="<?php echo esc_attr(get_social_label($link['url'])); ?>">
                                         <?php if ($link['icon']) { ?>
                                         <img src="<?php echo $link['icon']['url']; ?>"
                                             alt="<?php echo $link['icon']['alt']; ?>"
@@ -383,7 +430,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     class="language_item sub4 fourth_center_link">Strzeszyńska 61, 60-479 Poznań</a>
                                             </li>
 											<li><a href="#"
-                                                    class="language_item sub4 fifth_center_link">Warszawska 39/41, 61-082 Poznań</a>
+                                                    class="language_item sub4 fifth_center_link">Warszawska 39/41, 61-028 Poznań</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -411,7 +458,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <ul class="header_about_iconLinks">
                                 <?php foreach ($footer_icon_links as $link) { ?>
                                 <li>
-                                    <a href="<?php echo $link['url']; ?>" class="header_about_iconLink">
+                                    <a href="<?php echo $link['url']; ?>" class="header_about_iconLink" aria-label="<?php echo esc_attr(get_social_label($link['url'])); ?>">
                                         <?php if ($link['icon']) { ?>
                                         <img src="<?php echo $link['icon']['url']; ?>"
                                             alt="<?php echo $link['icon']['alt']; ?>"
@@ -448,7 +495,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <div class="left_piece"> 
                         <a href="<?php echo get_home_url(); ?>/" class="logo">
-                            <img src="<?php echo $header_logo['url']; ?>" alt="logotype"
+                            <img src="<?php echo $header_logo['url']; ?>" alt="logotype" fetchpriority="high" data-no-lazy="1"
                                 width="<?php echo $header_logo['width']; ?>"
                                 height="<?php echo $header_logo['height']; ?>">
                         </a>
@@ -487,19 +534,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </nav>
                     </div>
                     
-                    <!-- Button and badge container (reduced right margin) -->
+                    <!-- Контейнер для кнопки и баннера - уменьшен отступ справа -->
                     <div class="button-orly-wrapper" style="display: flex; align-items: center; gap: 8px; margin-right: 0;">
-                        <!-- Online booking button -->
-                        <a href="https://widget.zarezerwuj.pl/direct/ab7cf499-cd6c-46c4-9507-57cbf60ffd46" class="button contrast" target="_blank" onclick="gtag('event', 'zarezerwuj_wizyte', {
-                            'event_category': 'Запись онлайн', 'event_label': 'https://widget.zarezerwuj.pl' });" >
-                            <?php echo pll__('Забронировать','book-header');?>
-                        </a>
+                        <!-- Кнопка "Zarezerwuj wizytę" -->
+                         <a href="https://widget.zarezerwuj.pl/direct/ab7cf499-cd6c-46c4-9507-57cbf60ffd46" class="button contrast" target="_blank" onclick="gtag('event', 'zarezerwuj_wizyte', {
+                             'event_category': 'Запись онлайн', 'event_label': 'https://widget.zarezerwuj.pl' });" >
+                             <?php 
+                             if (pll_current_language() == 'de') {
+                                 echo 'Termin buchen';
+                             } else {
+                                 echo pll__('Забронировать','book-header');
+                             }
+                             ?>
+                         </a>
                         
-                        <!-- Awards badge container -->
-                        <?php if (function_exists('pll_current_language') && pll_current_language() == 'pl') : ?>
+                        <!-- Баннер Orły Motoryzacji рядом с кнопкой - уменьшен отступ -->
+                        <?php if (function_exists('pll_current_language') && (pll_current_language() == 'pl' || pll_current_language() == 'ru')) : ?>
                         <div class="orly-banner-button" style="display: inline-block; vertical-align: middle; margin-left: 8px;">
                             <a href="https://www.orlymotoryzacji.pl/profile-1750865-tak-serwis-warsztat-samochodowy" target="_blank" rel="noopener nofollow" style="display: inline-block;">
                                 <img src="https://www.orlymotoryzacji.pl/images/medals/1750865/laureat300_black_pl.png" 
+                                     width="170" 
+                                     height="46" 
                                      style="max-width: 170px; height: auto; border:0;" 
                                      alt="TAK Serwis Warsztat samochodowy - Poznań" 
                                      title="TAK Serwis Warsztat samochodowy - Poznań">
@@ -512,4 +567,109 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         
         <!-- Адаптивные стили для баннера -->
-        
+        <style>
+            /* Стили для баннера рядом с кнопкой */
+            .orly-banner-button {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            
+            /* Скрываем баннер на мобильных устройствах */
+            @media (max-width: 768px) {
+                .orly-banner-button {
+                    display: none !important;
+                }
+                
+                /* FIX: Расположение контейнера в мобильном меню */
+                #wrapper-navbar .header.header2 .container .button-orly-wrapper {
+                    order: -1;
+                    width: 100%;
+                    justify-content: center;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                
+                #wrapper-navbar .header.header2 .container .button-orly-wrapper .button {
+                    width: calc(100% - 40px);
+                    display: flex !important;
+                    justify-content: center;
+                    margin: 0;
+                }
+            }
+            
+            /* Для планшетов уменьшаем баннер и отступы */
+            @media (min-width: 769px) and (max-width: 992px) {
+                .header2 .container > div:last-child {
+                    gap: 5px !important;
+                }
+                .orly-banner-button {
+                    margin-left: 5px !important;
+                }
+                .orly-banner-button img {
+                    max-width: 130px !important;
+                }
+            }
+            
+            /* Для десктопов обычный размер */
+            @media (min-width: 993px) {
+                .header2 .container > div:last-child {
+                    gap: 8px !important;
+                }
+                .orly-banner-button img {
+                    max-width: 170px !important;
+                }
+            }
+            
+            /* Для больших экранов можно немного увеличить */
+            @media (min-width: 1200px) {
+                .orly-banner-button img {
+                    max-width: 180px !important;
+                }
+            }
+            
+            /* Для очень больших экранов */
+            @media (min-width: 1400px) {
+                .orly-banner-button img {
+                    max-width: 190px !important;
+                }
+            }
+            
+            /* Адаптивность контейнера с кнопкой и баннером */
+            @media (max-width: 992px) {
+                .header2 .container > div:last-child {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 5px !important;
+                }
+                
+                .orly-banner-button {
+                    margin-top: 5px;
+                    margin-left: 5px !important;
+                }
+            }
+            
+            /* Убедимся, что кнопка и баннер выровнены по центру */
+            .header2 .container {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .header2 .container > div:last-child {
+                display: flex;
+                align-items: center;
+                margin-right: 0;
+            }
+            
+            /* Уменьшаем общий отступ контейнера от правого края */
+            .header2 .container {
+                padding-right: 10px;
+            }
+            
+            /* Для кнопки уменьшаем правый padding если есть */
+            .button.contrast {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        </style>

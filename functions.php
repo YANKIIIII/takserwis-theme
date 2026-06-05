@@ -384,3 +384,34 @@ function load_subservices_for_service_callback() {
         wp_send_json_error('ID услуги не получен.');
     }
 }
+
+// Remove Montserrat font completely to optimize FCP and eliminate render-blocking critical requests
+add_filter('style_loader_src', function($src, $handle) {
+    if ($src && strpos($src, 'Montserrat') !== false) {
+        return false;
+    }
+    return $src;
+}, 9999, 2);
+
+add_filter('style_loader_tag', function($tag, $handle, $href) {
+    if (strpos($tag, 'Montserrat') !== false || strpos($href, 'Montserrat') !== false) {
+        return '';
+    }
+    return $tag;
+}, 9999, 3);
+
+// Capture the head output and filter out any hardcoded or plugin-injected Montserrat stylesheets
+add_action('wp_head', function() {
+    ob_start(function($html) {
+        // Strip out Google Fonts <link> tags containing Montserrat
+        $html = preg_replace('/<link\s+[^>]*href=["\'][^"\']*fonts\.googleapis\.com\/css[^"\']*Montserrat[^"\']*["\'][^>]*>/i', '', $html);
+        $html = preg_replace('/<link\s+[^>]*href=["\'][^"\']*Montserrat[^"\']*["\'][^>]*>/i', '', $html);
+        return $html;
+    });
+}, 1);
+
+add_action('wp_head', function() {
+    if (ob_get_level() > 0) {
+        ob_end_flush();
+    }
+}, 9999);

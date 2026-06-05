@@ -6,7 +6,592 @@
 global $post;
 ?>
 <?php get_header(); ?>
+<style>
+        #advantages_section {
+    background-color: #fff;
+    padding: 55px 0 0px 0;
+    padding-bottom: 30px;
+    margin-bottom: -30px;
+}
+#advantages_section h2{
+    margin-bottom: 40px;
+}
+#services_section {
+    background-color: #fff;
+    padding: 35px 0 0px 0;
+    padding-bottom: 30px;
+}
+.wp-gr .grw-row-m .grw-header+.grw-content {
+    flex: 0 0 100% !important;
+}
+.testimonials_section h2 {
+    margin-bottom: 180px;
+}
+.wp-gr.wpac {
+    position: relative !important;
+}
 
+
+.services-template .testimonials_section h2{
+    margin-bottom: 180px;
+}
+
+.services-template .grw-header {
+    position: absolute !important;
+        z-index: 99999999999 !important;
+        top: -163px !important;
+}
+.services-template .wp-gr .grw-row-m .grw-header+.grw-content {
+    flex: 0 0 100%!important;
+}
+.services-template .wp-gr.wpac {
+    position: relative !important;
+}
+.services-template .wp-google-wr {
+    position: absolute !important;
+        right: 0px !important;
+        top: -20px !important;
+}
+.services-template .wp-gr .wp-google-wr a {
+    display: flex;
+    flex-direction: row-reverse;
+    color: #fff !important;
+    padding: 14px 30px 13px !important;
+    outline: none !important;
+    border-radius: 8px !important;
+    background: #ff9d42 !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    text-shadow: 1px 1px 0 #888 !important;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24) !important;
+    user-select: none !important;
+    transition: all .2s ease-in-out !important;
+}
+.services-template .wp-gr .wp-google-wr a svg{
+    margin-right: 10px;
+}
+
+form select {
+    -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url(/wp-content/uploads/2024/12/ep_arrow-up.png);
+        background-repeat: no-repeat;
+        background-position-x: 94%;
+        background-position-y: 19px;
+}
+.button.transparent {
+    border: 1px solid #1a1924;
+    background: transparent;
+    font-weight: 700;
+}
+.button.transparent:hover {
+    border: 1px solid #ff9d42;
+    background: #ff9d42;
+    font-weight: 700;
+}
+#about_us_section_second{
+    padding-bottom: 0px;
+}
+
+
+#advantages_section {
+    background-color: #fff;
+    padding: 55px 0 0px 0;
+    padding-bottom: 30px;
+    margin-bottom: -30px;
+}
+#advantages_section h2{
+    margin-bottom: 40px;
+}
+#services_section {
+    background-color: #fff;
+    padding: 35px 0 0px 0;
+    padding-bottom: 30px;
+}
+.wp-gr .grw-row-m .grw-header+.grw-content {
+    flex: 0 0 100% !important;
+}
+.testimonials_section h2 {
+    margin-bottom: 180px;
+}
+.wp-gr.wpac {
+    position: relative !important;
+}
+
+
+.page-template-corporate_client .testimonials_section h2{
+    margin-bottom: 180px;
+}
+
+.page-template-corporate_client .grw-header {
+    position: absolute !important;
+        z-index: 99999999999 !important;
+        top: -163px !important;
+}
+.page-template-corporate_client .wp-gr .grw-row-m .grw-header+.grw-content {
+    flex: 0 0 100%!important;
+}
+.page-template-corporate_client .wp-gr.wpac {
+    position: relative !important;
+}
+.page-template-corporate_client .wp-google-wr {
+    position: absolute !important;
+        right: 0px !important;
+        top: -20px !important;
+}
+.page-template-corporate_client .wp-gr .wp-google-wr a {
+    display: flex;
+    flex-direction: row-reverse;
+    color: #fff !important;
+    padding: 14px 30px 13px !important;
+    outline: none !important;
+    border-radius: 8px !important;
+    background: #ff9d42 !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    text-shadow: 1px 1px 0 #888 !important;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24) !important;
+    user-select: none !important;
+    transition: all .2s ease-in-out !important;
+}
+.page-template-corporate_client .wp-gr .wp-google-wr a svg{
+    margin-right: 10px;
+}
+
+form select {
+    -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url(/wp-content/uploads/2024/12/ep_arrow-up.png);
+        background-repeat: no-repeat;
+        background-position-x: 94%;
+        background-position-y: 19px;
+}
+.button.transparent {
+    border: 1px solid #1a1924;
+    background: transparent;
+    font-weight: 700;
+}
+.button.transparent:hover {
+    border: 1px solid #ff9d42;
+    background: #ff9d42;
+    font-weight: 700;
+}
+#about_us_section_second{
+    padding-bottom: 0px;
+}
+
+.clients_logos {
+    position: relative;
+}
+
+.clients_logos .swiper-button-next, .clients_logos .swiper-button-prev {
+    position: absolute;
+    top: var(--swiper-navigation-top-offset, 50%);
+    width: calc(var(--swiper-navigation-size) / 44* 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px -(var(--swiper-navigation-size) / 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1A1924 !important;
+}
+.clients_logos .swiper-button-prev {
+    left: 15%;
+    font-size: 20px;
+}
+.clients_logos .swiper-button-next {
+    right: 15%;
+    font-size: 20px;
+}
+.clients_logos .swiper-button-prev:after {
+    font-size: 20px;
+        opacity: 0.7;
+}
+.clients_logos .swiper-button-next:after {
+    font-size: 20px;
+        opacity: 0.7;
+}
+.clients_logos .swiper3 img{
+    height: 100%;
+    width: 100%;
+    object-fit: none;
+    //transform: scale(1.2);
+}
+#main-section.corporate_client .grid-bonus {
+    display: block;
+}
+#calculator select{
+    height: 49px!important;
+    padding: 14px 15px!important;
+    border: none!important;
+    border-radius: 8px!important;
+    color: rgba(26, 25, 36, .5)!important;
+    outline: 1px solid rgba(26, 25, 36, .4)!important;
+    width: 100%!important;
+}
+.page-template-corporate_client #fbuilder .medium{
+    width: 100%!important;
+}
+
+#calculator .pb0.pbreak{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr 1fr 1fr!important;
+}
+#calculator .cff-calculated-field{
+    grid-column: 1 / -1;
+    width: 310px;
+}
+#calculator .cff-calculated-field input{
+    height: 49px!important;
+    padding: 14px 15px!important;
+    border: none!important;
+    border-radius: 8px!important;
+    width: 310px!important;
+}
+#calculator form{
+display: block!important;
+    width: 100%;
+}
+.grid-bonus__content ul{
+list-style: disc;
+}
+.grid-bonus__content ol{
+    list-style: auto;
+}
+.grid-bonus__content a.button{
+    margin-top: 20px;
+}
+.page-template-corporate_client .contact_iconLinks {
+    list-style: none;
+}
+
+@media (min-width: 1024px) and (max-width: 1400px) {
+.clients_logos .swiper-button-prev {
+    left: 5%;
+    font-size: 20px;
+}
+.clients_logos .swiper-button-next {
+    right: 5%;
+    font-size: 20px;
+}
+        }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+.clients_logos .swiper-button-prev {
+    left: 5%;
+    font-size: 20px;
+}
+.clients_logos .swiper-button-next {
+    right: 5%;
+    font-size: 20px;
+}
+.advantages_section.corporate_client .advantages {
+        /* margin-top: 20px; */
+        border-radius: 14px;
+        background-color: #f4f6f8;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 37px 2px;
+        justify-content: space-between;
+    }
+    #calculator .pb0.pbreak {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+}
+        }
+        @media (min-width: 320px) and (max-width: 767px) {
+    #calculator .pb0.pbreak {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+}
+        }
+.vacancies_img_wrapper_1 {
+    top: -35px;
+    position: absolute;
+    right: -11px;
+    width: 525px;
+    height: 204px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 900;
+    font-size: 60px;
+    text-transform: uppercase;
+}
+.vacancies_img_wrapper_1 span{
+    position: relative;
+    top: -20px;
+}
+.vacancies_img_wrapper {
+    position: relative;
+}
+.vacancies_img_wrapper_2 {
+    top: -75px;
+    position: absolute;
+    right: 11px;
+    z-index: 9;
+    width: 340px;
+    height: 68px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 28px;
+}
+:lang(ru) .vacancies_img_wrapper_2 {
+  font-size: 24px;
+}
+.right-col-corp {
+    min-width: 540px;
+}
+#main-section .grid-bonus .right-col-corp .grid-bonus__image {
+    border-radius: 18px;
+    width: 100%;
+    height: 100%;
+}
+#main-section {
+    background-color: #fff;
+}
+.grid_corporate .advantages{
+    width: 85%;
+    background: #f4f6f8;
+    border-radius: 18px;
+    padding: 32px;
+}
+.grid_corporate .advantages .item{
+    padding-top: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, .5);
+    padding-bottom: 20px;
+}
+.grid_corporate .advantages .item:first-child{
+    padding-top: 0px;
+}
+.grid_corporate .advantages .item:last-child{
+    border-bottom: none;
+    padding-bottom: 0px;
+}
+.grid_corporate .advantages .number_wrapper{
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+}
+.grid_corporate .advantages .number{
+    font-weight: 700;
+    font-size: 20px;
+    color: #1a1924;
+}
+.mt-40{
+    margin-top: 40px;
+}
+.corporate_heading{
+    width: 50%;
+    margin-bottom: 30px;
+}
+.button {
+    text-transform: none;
+}
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+.vacancies_img_wrapper {
+    margin-top: 45px;
+}
+.vacancies_img_wrapper img{
+    width: 100%;
+}
+.vacancies_img_wrapper_2 {
+    top: -42px;
+    right: 12px;
+    left: auto;
+    position: absolute;
+    z-index: 9;
+    width: 340px;
+    height: 68px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 28px;
+    transform: scale(0.55);
+    transform-origin: top right;
+}
+.vacancies_img_wrapper_1 {
+    top: -20px;
+    right: 0;
+    left: auto;
+    position: absolute;
+    width: 525px;
+    height: 204px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 900;
+    font-size: 60px;
+    transform: scale(0.55);
+    transform-origin: top right;
+    text-transform: uppercase;
+}
+#main-section .grid-bonus .right-col-corp .grid-bonus__image {
+    margin-left: 0px;
+}
+.grid_corporate .advantages {
+    width: 100%;
+    background: #f4f6f8;
+    border-radius: 18px;
+    padding: 32px;
+}
+.corporate_heading {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.right-col-corp {
+    width: 100%;
+    min-width: 100%;
+}
+ }
+
+/* Roadmap Infographic CSS (Snake Timeline) */
+.roadmap_section {
+    padding: 60px 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+.roadmap_section h2 {
+    margin-bottom: 60px;
+    text-align: center;
+}
+.snake-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 350px;
+}
+.snake-line {
+    position: absolute;
+    top: 60px;
+    left: calc(5% + 22px);
+    right: calc(5% + 22px);
+    height: 180px;
+    border: 1px solid rgba(255, 157, 66, 0.5);
+    border-left: none;
+    border-radius: 0 90px 90px 0;
+    z-index: 1;
+}
+.snake-item {
+    position: absolute;
+    width: 220px;
+    text-align: left;
+    z-index: 2;
+}
+.snake-icon {
+    width: 44px;
+    height: 44px;
+    background: #fff;
+    border: 2px solid #ff9d42;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff9d42;
+    position: absolute;
+    top: -22px;
+    left: 0;
+    box-shadow: 0 4px 10px rgba(255, 157, 66, 0.2);
+}
+.snake-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+.snake-text {
+    padding-top: 35px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #1a1924;
+    line-height: 1.4;
+}
+.snake-car {
+    position: absolute;
+    top: 228px;
+    left: calc(5% + 7px);
+    color: #ff9d42;
+    z-index: 2;
+    transform: scaleX(-1);
+}
+.snake-car svg {
+    width: 30px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.step-1 { top: 60px; left: 5%; }
+.step-2 { top: 60px; left: 38%; }
+.step-3 { top: 60px; left: 71%; }
+.step-4 { top: 240px; left: 50%; }
+.step-5 { top: 240px; left: 15%; }
+
+@media (max-width: 1023px) {
+    .snake-line {
+        left: calc(2% + 22px);
+        right: calc(2% + 22px);
+    }
+    .step-1 { left: 2%; }
+    .step-2 { left: 35%; }
+    .step-3 { left: 68%; }
+    .step-4 { left: 50%; }
+    .step-5 { left: 10%; }
+}
+
+@media (max-width: 767px) {
+    .snake-timeline {
+        height: auto;
+        padding: 20px 20px 60px 20px;
+    }
+    .snake-line {
+        top: 40px;
+        bottom: 40px;
+        left: 42px; /* 20px padding + 22px */
+        right: auto;
+        width: 0;
+        height: auto;
+        border: none;
+        border-left: 1px solid rgba(255, 157, 66, 0.5);
+        border-radius: 0;
+    }
+    .snake-item {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        width: 100%;
+        padding-left: 60px;
+        margin-bottom: 30px;
+    }
+    .snake-icon {
+        top: 0;
+        left: 0;
+    }
+    .snake-text {
+        padding-top: 10px;
+    }
+    .snake-car {
+        position: absolute;
+        top: auto;
+        bottom: 20px;
+        left: 27px; /* 42 - 15 */
+        transform: scaleX(1);
+    }
+}
+</style>
 <main class="main">
 
 <section id="title_section" class="title_section">
@@ -137,6 +722,38 @@ if ( function_exists('yoast_breadcrumb') ) {
     </section>
     <?php
 	  ?>
+
+    <section id="roadmap_section" class="roadmap_section">
+        <div class="container">
+            <h2>Путь клиента</h2>
+            <div class="snake-timeline">
+                <div class="snake-line"></div>
+                <div class="snake-car"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+                
+                <div class="snake-item step-1">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></div>
+                    <div class="snake-text">Звонок на инфолинию</div>
+                </div>
+                <div class="snake-item step-2">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                    <div class="snake-text">Контакт с менеджером B2B</div>
+                </div>
+                <div class="snake-item step-3">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+                    <div class="snake-text">Акцептация условий и приоритетный срок</div>
+                </div>
+                <div class="snake-item step-4">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+                    <div class="snake-text">Визит на сервис и встреча с менеджером</div>
+                </div>
+                <div class="snake-item step-5">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg></div>
+                    <div class="snake-text">Фактура со скидкой и запись следующего авто</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 	 <section id="video_section">
     <div class="wrapper2">
         <iframe 
@@ -146,6 +763,7 @@ if ( function_exists('yoast_breadcrumb') ) {
             height="800"
             src="https://www.youtube.com/embed/Lr74bZ4wqwk?enablejsapi=1&autoplay=1&mute=1"
             frameborder="0" 
+            loading="lazy"
             allowfullscreen>
         </iframe>
     </div>
@@ -181,6 +799,38 @@ if ( function_exists('yoast_breadcrumb') ) {
 	<?php
 	
 	?>
+
+    <section id="roadmap_section" class="roadmap_section">
+        <div class="container">
+            <h2>Ścieżka klienta</h2>
+            <div class="snake-timeline">
+                <div class="snake-line"></div>
+                <div class="snake-car"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+                
+                <div class="snake-item step-1">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></div>
+                    <div class="snake-text">Zadzwoń na infolinię</div>
+                </div>
+                <div class="snake-item step-2">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                    <div class="snake-text">Kontakt z menedżerem B2B</div>
+                </div>
+                <div class="snake-item step-3">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+                    <div class="snake-text">Akceptacja warunków i priorytetowy termin</div>
+                </div>
+                <div class="snake-item step-4">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+                    <div class="snake-text">Wizyta w serwisie i spotkanie z menedżerem</div>
+                </div>
+                <div class="snake-item step-5">
+                    <div class="snake-icon"><svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg></div>
+                    <div class="snake-text">Faktura z rabatem i umówienie kolejnego auta</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 	 <section id="video_section">
     <div class="wrapper2">
         <iframe 
@@ -190,6 +840,7 @@ if ( function_exists('yoast_breadcrumb') ) {
             height="800"
             src="https://www.youtube.com/embed/Lr74bZ4wqwk?enablejsapi=1&autoplay=1&mute=1"
             frameborder="0" 
+            loading="lazy"
             allowfullscreen>
         </iframe>
     </div>
@@ -292,7 +943,7 @@ if ( function_exists('yoast_breadcrumb') ) {
                                             $employee_quote = $employee['employee_quote'];
                                             ?>
                                             <div class="item"> 
-                                                <a class="about_us_team_link" href="<?php echo get_permalink(); ?>">                        
+                                                <a class="about_us_team_link" href="<?php echo get_permalink(); ?>" aria-label="<?php echo pll_current_language() == 'ru' ? 'Подробнее о ' . esc_attr(get_the_title()) : 'Więcej o ' . esc_attr(get_the_title()); ?>">                        
                                                 <img fetchpriority="high" class="grid-bonus__image item_img"
                                                         src="<?php echo $employee_img['url']; ?>" alt="<?php echo $employee_img['alt']; ?>"
                                                         width="<?php echo $employee_img['width']; ?>"
@@ -507,11 +1158,18 @@ $footer_copyright_text = $footer_options['copyright_text'];
    </div>
    <div class="contact-section-item-text">
       <ul>
-      <?php foreach ($addresses as $key => $item) { ?>
-
-      <li><?php echo $item['addresses_item']; ?></li>
-                
-                <?php } ?>
+      <?php 
+       $has_warszawska = false;
+       foreach ($addresses as $key => $item) { 
+           if (stripos($item['addresses_item'], 'Warszawska') !== false) {
+               $has_warszawska = true;
+           }
+       ?>
+       <li><?php echo $item['addresses_item']; ?></li>
+       <?php } ?>
+       <?php if (!$has_warszawska) { ?>
+       <li>Warszawska 39/41, 61-028 Poznań</li>
+       <?php } ?>
       </ul>                               
    </div>
 </div>
@@ -548,7 +1206,7 @@ $footer_copyright_text = $footer_options['copyright_text'];
                             <ul class="contact_iconLinks">
                 <?php foreach ($footer_icon_links as $link) { ?>
                 <li>
-                    <a rel=”nofollow” href="<?php echo $link['url']; ?>" target="_blank" class="footer_about_iconLink">
+                    <a rel="nofollow" href="<?php echo $link['url']; ?>" target="_blank" class="footer_about_iconLink" aria-label="<?php echo function_exists('get_social_label') ? esc_attr(get_social_label($link['url'])) : 'Social Media'; ?>">
                         <?php if ($link['icon']) { ?>
                         <img src="<?php echo $link['icon']['url']; ?>" alt="<?php echo $link['icon']['alt']; ?>"
                             width="<?php echo $link['icon']['width']; ?>"
@@ -584,6 +1242,11 @@ $footer_copyright_text = $footer_options['copyright_text'];
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.701249411396!2d16.8947197!3d52.44832639999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47044368c7cb54a9%3A0xe74bc2c1ba387447!2zU3RyemVzennFhHNrYSA2MSwgNjAtNDc5IFBvem5hxYQsINCf0L7Qu9GM0YjQsA!5e0!3m2!1sru!2sby!4v1765161166614!5m2!1sru!2sbys" 
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade" title="Strzeszyńska 61, 60-479 Poznań"></iframe>
+			</div>
+			<div class="wrapp_img fifth_center">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.8845459388657!2d16.9634938!3d52.406859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045b6dbaf275a5%3A0xb36a3f9e9cf2ef27!2sWarszawska%2039%2F41%2C%2061-028%20Pozna%C5%84%2C%20Poland!5e0!3m2!1sen!2spl!4v1765161166615!5m2!1sen!2spl" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" title="Warszawska 39/41, 61-028 Poznań"></iframe>
 			</div>
             
         </div>

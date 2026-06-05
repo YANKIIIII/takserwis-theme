@@ -755,7 +755,7 @@ samochodowych</h2>
                                             $employee_quote = $employee['employee_quote'];
                                             ?>
                                             <div class="item"> 
-                                                <a class="about_us_team_link" href="<?php echo get_permalink(); ?>">                        
+                                                <a class="about_us_team_link" href="<?php echo get_permalink(); ?>" aria-label="<?php echo pll_current_language() == 'ru' ? 'Подробнее о ' . esc_attr(get_the_title()) : 'Więcej o ' . esc_attr(get_the_title()); ?>">                        
                                                 <!-- <img class="item_img" src="https://takservice2/wp-content/uploads/2024/03/photo_2024-03-12_16-23-571212.webp" alt="" width="853" height="727"> -->
                                                 <img fetchpriority="high" class="grid-bonus__image item_img"
                                                         src="<?php echo $employee_img['url']; ?>" alt="<?php echo $employee_img['alt']; ?>"
@@ -934,7 +934,14 @@ the_content();
         </div>
     </section>
 </main>
+<style>
+  .swiper, .swiper2 {
+  width: 100%;
+  /* height: 100%!important; */
+  min-height: 250px!important;
+}
 
+</style>
 
 <div class="becomedealer_wrapper">
 
