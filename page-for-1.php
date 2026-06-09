@@ -492,8 +492,9 @@ $phone_display = '+48 880 353 599';
 @media (max-width: 991px) {
     .lwt-hero { padding: 100px 0 60px; text-align: center; }
     .lwt-hero__overlay { background: rgba(244,246,248,0.9); }
-    .lwt-hero__title { margin: 0 auto 20px; }
-    .lwt-hero__subtitle { margin: 0 auto 30px; }
+    .lwt-hero__title { margin: 0 auto 20px; color: var(--lwt-dark); }
+    .lwt-hero__subtitle { margin: 0 auto 30px; color: var(--lwt-dark); opacity: 1; }
+    .lwt-hero__eta { color: var(--lwt-dark); }
     .lwt-hero__actions { justify-content: center; }
     .lwt-advantage__inner { grid-template-columns: 1fr; gap: 40px; }
     .lwt-timeline__grid { grid-template-columns: 1fr; gap: 40px; }

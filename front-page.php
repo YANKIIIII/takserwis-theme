@@ -90,7 +90,7 @@ if ( function_exists('pll_current_language') && pll_current_language() === 'de' 
         </div>
     </div>
     <img src="/wp-content/uploads/2026/01/karta-klubowicza2.png" alt="" class="swiper-slide-second-img hide_mobile">
-    <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.webp" alt="" class="swiper-slide-second-img_mobile">
+    <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.png" alt="" class="swiper-slide-second-img_mobile">
 </div>
 
 <style>
@@ -229,7 +229,7 @@ if ( function_exists('pll_current_language') && pll_current_language() === 'de' 
         </div>
     </div>
     <img src="/wp-content/uploads/2026/01/karta-klubowicza2.png" alt="" class="swiper-slide-second-img hide_mobile">
-    <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.webp" alt="" class="swiper-slide-second-img_mobile">
+    <img src="/wp-content/uploads/2026/03/baner-na-sajt-_tak-klub_-mobilnaya-versiya.png" alt="" class="swiper-slide-second-img_mobile">
 </div>
 
 <style>
