@@ -1692,25 +1692,35 @@ form .wpcf7-form-control-wrap select {
     }
 
     .swiper3 {
-        height: 697px;
+        height: calc(100vh - 80px);
+        min-height: 700px;
     }
 
     .swiper-slide-first .container {
         display: flex;
-        align-items: center;
-        height: 400px;
+        align-items: flex-start;
+        padding-top: 40px;
+        height: auto;
+        position: relative;
+        z-index: 2;
     }
 
     .swiper-slide-second .container {
         display: flex;
-        align-items: center;
-        height: 400px;
+        align-items: flex-start;
+        padding-top: 40px;
+        height: auto;
+        position: relative;
+        z-index: 2;
     }
 
     .swiper-slide-third .container {
         display: flex;
-        align-items: center;
-        height: 300px;
+        align-items: flex-start;
+        padding-top: 40px;
+        height: auto;
+        position: relative;
+        z-index: 2;
     }
 
     #main-section-new.new-slider .grid-bonus__content {
