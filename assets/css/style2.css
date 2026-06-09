@@ -1699,7 +1699,7 @@ form .wpcf7-form-control-wrap select {
     .swiper-slide-first .container {
         display: flex;
         align-items: flex-start;
-        padding-top: 40px;
+        padding-top: 80px;
         height: auto;
         position: relative;
         z-index: 2;
@@ -1708,7 +1708,7 @@ form .wpcf7-form-control-wrap select {
     .swiper-slide-second .container {
         display: flex;
         align-items: flex-start;
-        padding-top: 40px;
+        padding-top: 80px;
         height: auto;
         position: relative;
         z-index: 2;
@@ -1717,7 +1717,7 @@ form .wpcf7-form-control-wrap select {
     .swiper-slide-third .container {
         display: flex;
         align-items: flex-start;
-        padding-top: 40px;
+        padding-top: 80px;
         height: auto;
         position: relative;
         z-index: 2;
